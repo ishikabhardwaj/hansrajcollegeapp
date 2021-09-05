@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.hansrajcollege">
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,7 +11,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.HansrajCollege">
-        <activity android:name=".login"></activity>
+        <activity android:name=".Fac_Art_Comm_time_table"></activity>
+        <activity android:name=".Fac_Sci_time_table" />
+        <activity android:name=".GE_time_table" />
+        <activity android:name=".arts_comm_time_table" />
+        <activity android:name=".science_time_table" />
+        <activity android:name=".login" />
         <activity android:name=".syllabus" />
         <activity android:name=".time_table" />
         <activity android:name=".home" />

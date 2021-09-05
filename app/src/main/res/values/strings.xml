@@ -1,4 +1,12 @@
 <resources>
     <string name="app_name">Hansraj College</string>
     <string name="Next_Page">Continue</string>
+    <string name="Student_login">Login as Student</string>
+    <string name="Teacher_login">Login as Teacher</string>
+    <string name="Admin_login">Login as Admin</string>
+    <string name="Science_tt">Science Time Table</string>
+    <string name="Arts_com_tt">Arts and Commerce Time Table</string>
+    <string name="ge_tt">GE Time Table</string>
+    <string name="fac_sci">Faculty Science Time Table</string>
+    <string name="fac_art_comm">Faculty Arts and Commerce Time Table</string>
 </resources>

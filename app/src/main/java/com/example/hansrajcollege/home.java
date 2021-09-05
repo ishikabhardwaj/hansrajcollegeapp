@@ -14,8 +14,11 @@ import com.synnapps.carouselview.ViewListener;
 
 public class home extends AppCompatActivity {
     int[] sampleImages = {R.drawable.bc1, R.drawable.bc2, R.drawable.bc3};
-    String[] bttn_text={"LOGIN","SYLLABUS","TIME TABLE"};
-    String[] body={"LOGIN BLAH BLAH BLAH BLAH BLAH BLAH BLAH ","SYLLABUS BLAH BLAH BLAH BLAH BLAH BLAH BLAH ","TIME TABLE BLAH BLAH BLAH BLAH BLAH BLAH "};
+    String[] btn_text={"Login","View Syllabus","View Time Table"};
+    String[] desc={"Login with the credentials provided to get access to more features ",
+            "View the entire syllabus of all the courses by clicking this link ",
+            "View the Time Table for all the courses by clicking this link "};
+    String[] heading={"LOGIN","SYLLABUS","TIME TABLE"};
     CarouselView customCarouselView;
     int NUMBER_OF_PAGES = 3;
 
@@ -38,26 +41,26 @@ public class home extends AppCompatActivity {
             ImageView img=(ImageView)cs.findViewById(R.id.image);
             TextView head_text=(TextView)cs.findViewById(R.id.heading_text);
             TextView body_text=(TextView)cs.findViewById(R.id.body_text);
-            Button bttn=(Button)cs.findViewById(R.id.bttn);
-            bttn.setText(bttn_text[position]);
+            Button btn=(Button)cs.findViewById(R.id.bttn);
+            btn.setText(btn_text[position]);
             img.setImageResource(sampleImages[position]);
-            head_text.setText(bttn_text[position]);
-            body_text.setText(body[position]);
+            head_text.setText(heading[position]);
+            body_text.setText(desc[position]);
 
 
 
-            bttn.setOnClickListener(new View.OnClickListener() {
+            btn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (bttn.getText()=="LOGIN"){
+                    if (btn.getText()=="Login"){
                         Intent intent=new Intent(getBaseContext(),login.class);
                         startActivity(intent);
                     }
-                    if (bttn.getText()=="SYLLABUS"){
+                    if (btn.getText()=="View Syllabus"){
                         Intent intent=new Intent(getBaseContext(),syllabus.class);
                         startActivity(intent);
                     }
-                    if (bttn.getText()=="TIME TABLE"){
+                    if (btn.getText()=="View Time Table"){
                         Intent intent=new Intent(getBaseContext(),time_table.class);
                         startActivity(intent);
                     }
