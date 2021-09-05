@@ -7,7 +7,21 @@
     tools:context=".home"
     android:background="@drawable/cream_gradient">
 
-    <com.google.android.material.button.MaterialButton
+    <com.synnapps.carouselview.CarouselView
+        android:id="@+id/carouselView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:fillColor="#FFFFFFFF"
+        app:autoPlay="false"
+        app:pageColor="#00000000"
+        app:radius="6dp"
+        app:slideInterval="3000"
+        app:strokeColor="#FF777777"
+        app:strokeWidth="1dp"/>
+
+
+
+    <!--<com.google.android.material.button.MaterialButton
         android:id="@+id/login_button"
         android:layout_width="200dp"
         android:layout_height="60dp"
@@ -41,6 +55,6 @@
         android:layout_centerHorizontal="true"
         android:text="Syllabus"
         android:textSize="20dp"
-        android:layout_marginTop="50dp"/>
+        android:layout_marginTop="50dp"/>-->
 
 </RelativeLayout>
