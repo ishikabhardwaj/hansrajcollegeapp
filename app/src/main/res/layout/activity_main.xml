@@ -4,71 +4,59 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:background="@drawable/red_gradient">
+    tools:context=".MainActivity">
 
     <ImageView
         android:id="@+id/clg_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
-        android:src="@drawable/hansraj_scaled"/>
+        android:scaleType="fitCenter"
+        android:src="@drawable/hrc_pic"/>
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/logo2"
+        android:layout_below="@+id/clg_image"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="-60dp"/>
+
+    <TextView
+        android:id="@+id/hrc_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/logo"
+        android:layout_centerInParent="true"
+        android:textAlignment="center"
+        android:layout_marginTop="30dp"
+        android:fontFamily="serif"
+        android:text="HANSRAJ COLLEGE"
+        android:textColor="#B04400"
+        android:textSize="30sp"
+        android:textStyle="bold" />
 
     <ImageView
         android:id="@+id/clg_logo"
         android:layout_width="wrap_content"
-        android:layout_height="140dp"
-        android:src="@drawable/logohrc"
-        android:layout_below="@+id/clg_image"
-        android:layout_marginLeft="60dp"
-        android:layout_marginTop="30dp"/>
-
-    <TextView
-        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/clg_image"
-        android:layout_marginLeft="19dp"
-        android:layout_marginTop="48dp"
-        android:textStyle="bold"
-        android:layout_toRightOf="@+id/clg_logo"
-        android:fontFamily="sans-serif-condensed"
-        android:text="Hansraj College"
-        android:textColor="@color/white"
-        android:textSize="40sp" />
+        android:src="@drawable/logo_hindi_new"
+        android:layout_below="@+id/hrc_name"
+        android:layout_marginTop="30dp"
+        android:layout_centerInParent="true"/>
 
-    <View
-        android:layout_centerHorizontal="true"
+    <ProgressBar
+        android:id="@+id/simpleProgressBar"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="350dp"
+        android:layout_height="10dp"
         android:layout_below="@+id/clg_logo"
-        android:layout_width="320dp"
-        android:layout_height="2dp"
-        android:background="#efc600"
-        android:layout_marginTop="20dp"
-        android:layout_centerVertical="true"/>
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/next"
-        android:layout_width="wrap_content"
-        android:layout_height="60dp"
-        android:backgroundTint="@color/yellow"
-        android:layout_below="@+id/clg_logo"
-        android:layout_centerHorizontal="true"
-        android:text="@string/Next_Page"
-        app:cornerRadius="10dp"
-        android:textStyle="bold"
-        android:textSize="20dp"
-        android:layout_marginTop="50dp"/>
-
-    <!--
-    <Button
-        android:id="@+id/next"
-        android:layout_width="wrap_content"
-        android:layout_height="60dp"
-        android:backgroundTint="@color/yellow"
-        android:layout_below="@+id/clg_logo"
-        android:layout_centerHorizontal="true"
-        android:text="@string/Next_Page"
-        android:textStyle="bold"
-        android:textSize="20dp"
-        android:layout_marginTop="50dp"/>-->
+        android:layout_centerInParent="true"
+        android:layout_marginTop="70dp"
+        android:max="100"
+        android:progress="0"
+        android:progressBackgroundTint="#ffffff"
+        android:progressTint="#B04400"/>
 
 </RelativeLayout>

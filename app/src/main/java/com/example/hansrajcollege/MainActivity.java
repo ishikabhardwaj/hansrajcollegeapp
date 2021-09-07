@@ -4,25 +4,53 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 
 public class MainActivity extends AppCompatActivity {
-    Button next_page;
+
+    private int progress = 0;
+    ProgressBar simpleProgressBar;
+    Handler phandler= new Handler();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        next_page=(Button)findViewById(R.id.next);
+        simpleProgressBar = (ProgressBar) findViewById(R.id.simpleProgressBar);
 
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while(progress<100){
+                    progress++;
+                    android.os.SystemClock.sleep(50);
+                    phandler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            simpleProgressBar.setProgress(progress);
+                        }
+                    });
+                }
+                phandler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        Intent intent=new Intent(getBaseContext(),home.class);
+                        startActivity(intent);
+                    }
+                });
+            }
+        }).start();
 
-        next_page.setOnClickListener(new View.OnClickListener() {
+        /*next_page.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(getBaseContext(),home.class);
                 startActivity(intent);
             }
         });
-
+*/
     }
 }
