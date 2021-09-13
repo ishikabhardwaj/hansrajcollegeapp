@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.hansrajcollege">
 
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <uses-feature android:name="android.hardware.type.watch" />
+
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
@@ -11,7 +15,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.HansrajCollege">
-        <activity android:name=".Fac_Art_Comm_time_table"></activity>
+        <activity android:name=".Fac_Art_Comm_time_table" />
         <activity android:name=".Fac_Sci_time_table" />
         <activity android:name=".GE_time_table" />
         <activity android:name=".arts_comm_time_table" />
@@ -19,7 +23,7 @@
         <activity android:name=".login" />
         <activity android:name=".syllabus" />
         <activity android:name=".time_table" />
-        <activity android:name=".home" />
+        <activity android:name=".Home_page" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
