@@ -9,6 +9,7 @@
     <string name="ge_tt">GE Time Table</string>
     <string name="fac_sci">Faculty Science Time Table</string>
     <string name="fac_art_comm">Faculty Arts and Commerce Time Table</string>
+    <string name="login">LOGIN</string>
     <string name="title_activity_home_page">Home_page</string>
     <!--
     This string is used for square devices and overridden by hello_world in
