@@ -6,6 +6,7 @@
     tools:context=".Login_fragment">
 
     <!-- TODO: add login button's onclick function -->
+
     <ImageView
         android:id="@+id/white_rect"
         android:layout_width="match_parent"
