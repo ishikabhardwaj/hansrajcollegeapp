@@ -4,11 +4,46 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Syllabus_fragment">
+    <LinearLayout
+        android:layout_width="350dp"
+        android:layout_height="350dp"
+        android:layout_gravity="center"
+        android:background="@color/white"
+        android:layout_marginTop="15dp"
+        android:orientation="vertical"
+        tools:context=".MainActivity">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Syllabus Page" />
+
+        <com.example.hansrajcollege.CustomSpinner
+            android:id="@+id/spinner"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/bg_spinner"
+            android:visibility="visible"
+            android:spinnerMode="dropdown" />
+
+
+
+        <com.example.hansrajcollege.CustomSpinner
+            android:id="@+id/spinner2"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/bg_spinner"
+            android:spinnerMode="dropdown"/>
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:text="View Syllabus"
+            android:backgroundTint="#b04400" />
+    </LinearLayout>
+
 
 </FrameLayout>
