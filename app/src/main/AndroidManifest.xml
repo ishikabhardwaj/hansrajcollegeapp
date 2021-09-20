@@ -20,8 +20,6 @@
         <activity android:name=".GE_time_table" />
         <activity android:name=".arts_comm_time_table" />
         <activity android:name=".science_time_table" />
-        <activity android:name=".login" />
-        <activity android:name=".syllabus" />
         <activity android:name=".time_table" />
         <activity android:name=".Home_page" />
         <activity android:name=".MainActivity">
