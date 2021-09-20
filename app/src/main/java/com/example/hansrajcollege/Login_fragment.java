@@ -119,6 +119,18 @@ int selected_designation;
                             Toast.makeText(getActivity(), "Login successful", Toast.LENGTH_LONG).show();
 
                             Log.d("Data success", response.toString());
+                            if(selected_designation==0)
+                            {
+                                //intent to admin vala dashboard
+                            }
+                            else if(selected_designation==1)
+                            {
+                                //intent to student vala dashboard
+                            }
+                            else if(selected_designation==2)
+                            {
+                                //intent to teacher vala dashboard
+                            }
                         } else {
                             Toast.makeText(getActivity(), "Login failed", Toast.LENGTH_LONG).show();
                             Log.d("Data fail", response.toString());
