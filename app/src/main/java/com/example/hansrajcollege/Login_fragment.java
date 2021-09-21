@@ -38,7 +38,7 @@ public class Login_fragment extends Fragment {
 EditText userName, Password;
 Button btnlogin;
 RadioGroup designation;
-RadioButton faculty,student,admin;
+RadioButton faculty,student;
 int selected_designation;
 
     public Login_fragment() {
@@ -56,7 +56,6 @@ int selected_designation;
         designation = (RadioGroup) root.findViewById(R.id.radio_who);
         faculty = (RadioButton) root.findViewById(R.id.Faculty);
         student = (RadioButton) root.findViewById(R.id.Student);
-        admin = (RadioButton) root.findViewById(R.id.Admin);
 
 
         btnlogin.setOnClickListener(new View.OnClickListener() {
@@ -65,25 +64,28 @@ int selected_designation;
                 if (designation.getCheckedRadioButtonId() == -1) {
                     //no button is selected
                     Toast.makeText(getActivity(), "select a radio button", Toast.LENGTH_SHORT).show();
-                } else {
+                }
+                else {
+                    //getting the id of the selected radio button
+                    //assigning the value to student_designation according to selected radio button
                     int selected_id = designation.getCheckedRadioButtonId();
                     RadioButton selected_R_button = (RadioButton) root.findViewById(selected_id);
                     if (selected_R_button.getText() == "Student") {
-                        selected_designation = 1;
-                    } else if (selected_R_button.getText() == "Teacher") {
-                        selected_designation = 2;
-                    } else if (selected_R_button.getText() == "Admin") {
                         selected_designation = 0;
+                    }
+                    else if (selected_R_button.getText() == "Teacher") {
+                        selected_designation = 1;
                     }
                 }
                 if (TextUtils.isEmpty(userName.getText().toString()) || TextUtils.isEmpty(Password.getText().toString())) {
+                    //password and Username is not entered by the user
                     Toast.makeText(getActivity(), "Username / Password Required", Toast.LENGTH_LONG).show();
-                } else {
+                }
+                else {
                     //proceed to login
                     login();
                 }
             }
-
         });
         return root;
     }
@@ -122,20 +124,16 @@ int selected_designation;
                             Log.d("Data success", response.toString());
                             if(selected_designation==0)
                             {
-                                startActivity(new Intent(getContext(),StudentDashboard.class));//intent to admin vala dashboard
+                                startActivity(new Intent(getContext(),StudentDashboard.class));//intent to student vala dashboard
                             }
                             else if(selected_designation==1)
                             {
-                               startActivity(new Intent(getContext(),StudentDashboard.class)); //intent to student vala dashboard
+                               startActivity(new Intent(getContext(),StudentDashboard.class)); //intent to teacher vala dashboard
                             }
-                            else if(selected_designation==2)
-                            {
-                                //intent to teacher vala dashboard
-                            }
-                        } else {
+                        }
+                        else {
                             Toast.makeText(getActivity(), "Login failed", Toast.LENGTH_LONG).show();
                             Log.d("Data fail", response.toString());
-
                         }
                     }
                     @Override

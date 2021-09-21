@@ -53,59 +53,59 @@
             android:textSize="15sp"
             android:textStyle="bold" />
 
-        <RadioButton
-            android:id="@+id/Admin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:buttonTint="@color/brownbg"
-            android:checked="false"
-            android:text="Admin"
-            android:textColor="#000000"
-            android:textSize="15sp"
-            android:textStyle="bold" />
-    </RadioGroup>
-
-    <EditText
-        android:id="@+id/username_edit"
-        android:layout_width="match_parent"
+    <!-- <RadioButton
+        android:id="@+id/Admin"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/radio_who"
-        android:layout_marginLeft="60dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="60dp"
-        android:ems="10"
-        android:hint="Enter your Username"
-        android:inputType="text"
-        android:selectAllOnFocus="true" />
+        android:layout_marginLeft="5dp"
+        android:buttonTint="@color/brownbg"
+        android:checked="false"
+        android:text="Admin"
+        android:textColor="#000000"
+        android:textSize="15sp"
+        android:textStyle="bold" />-->
+</RadioGroup>
 
-    <EditText
-        android:id="@+id/password_edit"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/username_edit"
-        android:layout_marginLeft="60dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="60dp"
-        android:ems="10"
-        android:hint="Enter your Password"
-        android:inputType="textPassword" />
+<EditText
+    android:id="@+id/username_edit"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/radio_who"
+    android:layout_marginLeft="60dp"
+    android:layout_marginTop="20dp"
+    android:layout_marginRight="60dp"
+    android:ems="10"
+    android:hint="Enter your Username"
+    android:inputType="text"
+    android:selectAllOnFocus="true" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/login_btn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/password_edit"
-        android:layout_marginLeft="60dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginRight="60dp"
-        android:backgroundTint="@color/brownbg"
-        android:gravity="center"
-        android:text="@string/login"
-        android:textColor="@color/white" />
+<EditText
+    android:id="@+id/password_edit"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/username_edit"
+    android:layout_marginLeft="60dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginRight="60dp"
+    android:ems="10"
+    android:hint="Enter your Password"
+    android:inputType="textPassword" />
+
+<com.google.android.material.button.MaterialButton
+    android:id="@+id/login_btn"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/password_edit"
+    android:layout_marginLeft="60dp"
+    android:layout_marginTop="30dp"
+    android:layout_marginRight="60dp"
+    android:backgroundTint="@color/brownbg"
+    android:gravity="center"
+    android:text="@string/login"
+    android:textColor="@color/white" />
 <!--        android:strokeWidth="13"
-        android:strokeColor="@color/brownbg"
-        android:backgroundTint="@color/white" -->
+    android:strokeColor="@color/brownbg"
+    android:backgroundTint="@color/white" -->
 
 
 </RelativeLayout>
