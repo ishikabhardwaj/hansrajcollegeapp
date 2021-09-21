@@ -2,33 +2,30 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
     android:backgroundTint="@color/white"
     android:foregroundTint="@color/brownbg"
     tools:context=".Login_fragment">
 
     <!-- TODO: add login button's onclick function -->
 
-    <ImageView
-        android:id="@+id/white_rect"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_centerInParent="true"
-        android:layout_marginLeft="75dp"
-        android:layout_marginTop="300dp"
-        android:src="@drawable/whiterect"
-        android:background="@color/white" />
+    <LinearLayout
+        android:layout_width="340dp"
+        android:layout_height="300dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:gravity="center"
+        android:background="@color/white"
+        android:orientation="vertical">
 
-    <RadioGroup
-        android:id="@+id/radio_who"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="165dp"
-        android:layout_marginLeft="65dp"
-        android:layout_marginRight="65dp"
-        android:layout_centerHorizontal="true">
+        <RadioGroup
+            android:id="@+id/radio_who"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
 
         <RadioButton
             android:id="@+id/Faculty"
@@ -45,7 +42,7 @@
             android:id="@+id/Student"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
+            android:layout_marginLeft="40dp"
             android:buttonTint="@color/brownbg"
             android:checked="true"
             android:text="Student"
@@ -106,6 +103,6 @@
 <!--        android:strokeWidth="13"
     android:strokeColor="@color/brownbg"
     android:backgroundTint="@color/white" -->
-
+    </LinearLayout>
 
 </RelativeLayout>
