@@ -3,20 +3,21 @@
     package="com.example.hansrajcollege">
 
     <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <uses-feature android:name="android.hardware.type.watch" />
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
-        android:usesCleartextTraffic="true"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.HansrajCollege">
+        android:theme="@style/Theme.HansrajCollege"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".StudentDashboard"></activity>
         <activity android:name=".Fac_Art_Comm_time_table" />
         <activity android:name=".Fac_Sci_time_table" />
         <activity android:name=".GE_time_table" />

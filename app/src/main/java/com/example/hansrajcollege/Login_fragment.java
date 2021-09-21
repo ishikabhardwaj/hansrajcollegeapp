@@ -1,6 +1,7 @@
 package com.example.hansrajcollege;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -121,11 +122,11 @@ int selected_designation;
                             Log.d("Data success", response.toString());
                             if(selected_designation==0)
                             {
-                                //intent to admin vala dashboard
+                                startActivity(new Intent(getContext(),StudentDashboard.class));//intent to admin vala dashboard
                             }
                             else if(selected_designation==1)
                             {
-                                //intent to student vala dashboard
+                               startActivity(new Intent(getContext(),StudentDashboard.class)); //intent to student vala dashboard
                             }
                             else if(selected_designation==2)
                             {
