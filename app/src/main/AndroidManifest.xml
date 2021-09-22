@@ -18,12 +18,6 @@
         android:theme="@style/Theme.HansrajCollege"
         android:usesCleartextTraffic="true">
         <activity android:name=".StudentDashboard"></activity>
-        <activity android:name=".Fac_Art_Comm_time_table" />
-        <activity android:name=".Fac_Sci_time_table" />
-        <activity android:name=".GE_time_table" />
-        <activity android:name=".arts_comm_time_table" />
-        <activity android:name=".science_time_table" />
-        <activity android:name=".time_table" />
         <activity android:name=".Home_page" />
         <activity android:name=".MainActivity">
             <intent-filter>
