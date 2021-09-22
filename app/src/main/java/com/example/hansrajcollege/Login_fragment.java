@@ -128,7 +128,7 @@ int selected_designation;
                             }
                             else if(selected_designation==1)
                             {
-                               startActivity(new Intent(getContext(),StudentDashboard.class)); //intent to teacher vala dashboard
+                               //startActivity(new Intent(getContext(),StudentDashboard.class)); //intent to teacher vala dashboard
                             }
                         }
                         else {
