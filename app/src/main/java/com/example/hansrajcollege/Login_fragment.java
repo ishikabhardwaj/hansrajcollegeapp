@@ -128,12 +128,13 @@ int selected_designation;
                             }
                             else if(selected_designation==1)
                             {
-                               //startActivity(new Intent(getContext(),StudentDashboard.class)); //intent to teacher vala dashboard
+                                startActivity(new Intent(getContext(),TeacherDashboard2.class));//intent to teacher vala dashboard
                             }
                         }
                         else {
                             Toast.makeText(getActivity(), "Login failed", Toast.LENGTH_LONG).show();
                             Log.d("Data fail", response.toString());
+                            startActivity(new Intent(getContext(),TeacherDashboard2.class));
                         }
                     }
                     @Override
