@@ -1,5 +1,7 @@
 package com.example.hansrajcollege;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -70,12 +72,10 @@ public class HomeFragment extends Fragment {
         c5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Fragment fragment = new FeesFragment();
-                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.fragment_container, fragment);
-                fragmentTransaction.addToBackStack(null);
-                fragmentTransaction.commit();
+                String URL ="https://www.hansrajcollege.ac.in/student-fee";
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(URL));
+                startActivity(i);
             }
         });
         // Inflate the layout for this fragment

@@ -67,23 +67,29 @@ int selected_designation;
                 }
                 else {
                     //getting the id of the selected radio button
-                    //assigning the value to student_designation according to selected radio button
+                    //assigning the value to selected_designation according to selected radio button
                     int selected_id = designation.getCheckedRadioButtonId();
                     RadioButton selected_R_button = (RadioButton) root.findViewById(selected_id);
-                    if (selected_R_button.getText() == "Student") {
+                    Toast.makeText(getActivity(),selected_R_button.getText(),Toast.LENGTH_LONG).show();
+                   /* if (selected_R_button.getText() =="Student") {
+                        Toast.makeText(getActivity(),"Student Selected",Toast.LENGTH_LONG).show();
                         selected_designation = 0;
                     }
-                    else if (selected_R_button.getText() == "Teacher") {
+                    else if (selected_R_button.getText() == "Faculty") {
+                        Toast.makeText(getActivity(),"Faculty Selected",Toast.LENGTH_LONG).show();
                         selected_designation = 1;
                     }
-                }
-                if (TextUtils.isEmpty(userName.getText().toString()) || TextUtils.isEmpty(Password.getText().toString())) {
-                    //password and Username is not entered by the user
-                    Toast.makeText(getActivity(), "Username / Password Required", Toast.LENGTH_LONG).show();
-                }
-                else {
-                    //proceed to login
-                    login();
+                    else {
+                        Toast.makeText(getActivity(),selected_R_button.getText(),Toast.LENGTH_LONG).show();
+                    }*/
+                    if (TextUtils.isEmpty(userName.getText().toString()) || TextUtils.isEmpty(Password.getText().toString())) {
+                        //password and Username is not entered by the user
+                        Toast.makeText(getActivity(), "Username / Password Required", Toast.LENGTH_LONG).show();
+                    }
+                    else {
+                        //proceed to login
+                        login();
+                    }
                 }
             }
         });
@@ -119,16 +125,18 @@ int selected_designation;
                     @Override
                     public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
                         if (response.isSuccessful()) {
-                            Toast.makeText(getActivity(), "Login successful", Toast.LENGTH_LONG).show();
+                            //Toast.makeText(getActivity(), "Login successful", Toast.LENGTH_LONG).show();
 
                             Log.d("Data success", response.toString());
                             if(selected_designation==0)
                             {
-                                startActivity(new Intent(getContext(),StudentDashboard.class));//intent to student vala dashboard
+                                //intent to student vala dashboard
+                                startActivity(new Intent(getContext(),StudentDashboard.class));
                             }
                             else if(selected_designation==1)
                             {
-                                startActivity(new Intent(getContext(),TeacherDashboard2.class));//intent to teacher vala dashboard
+                                //intent to teacher vala dashboard
+                                startActivity(new Intent(getContext(),TeacherDashboard2.class));
                             }
                         }
                         else {
