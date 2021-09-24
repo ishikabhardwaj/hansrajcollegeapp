@@ -67,7 +67,7 @@ int selected_designation;
                 }
                 else {
                     //getting the id of the selected radio button
-                    //assigning the value to student_designation according to selected radio button
+                    //assigning the value to selected_designation according to selected radio button
                     int selected_id = designation.getCheckedRadioButtonId();
                     RadioButton selected_R_button = (RadioButton) root.findViewById(selected_id);
                     if (selected_R_button.getText() == "Student") {
