@@ -21,7 +21,8 @@
             android:layout_marginTop="50dp"
             android:background="@drawable/bg_spinner"
             android:visibility="visible"
-            android:spinnerMode="dropdown" />
+            android:spinnerMode="dropdown"
+            />
 
 
 
