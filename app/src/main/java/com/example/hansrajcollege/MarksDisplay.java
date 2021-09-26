@@ -2,32 +2,39 @@ package com.example.hansrajcollege;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
-public class MarksDisplay extends AppCompatActivity {
+
+public class MarksDisplay extends Fragment {
+
 
     TextView h1, d1, m1;
     ImageView i1;
     String subject, type;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.marksdisplay);
-        h1 = (TextView) findViewById(R.id.subhead);
-        i1 = (ImageView) findViewById(R.id.image);
-        d1 = (TextView) findViewById(R.id.description);
-        m1 = (TextView) findViewById(R.id.marksget);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View root=inflater.inflate(R.layout.marksdisplay, container, false);
+        h1 = root.findViewById(R.id.subhead);
+        i1 = root.findViewById(R.id.image);
+        d1 = root.findViewById(R.id.description);
+        m1 = root.findViewById(R.id.marksget);
 
-        Intent intent = getIntent();
+        Bundle bundle= this.getArguments();
+        subject= bundle.getString("Subject_Selected");
+        type= bundle.getString("Type_Selected");
+        /*Intent intent = getActivity().getIntent();
         subject = intent.getStringExtra("Subject_Selected");
-        type = intent.getStringExtra("Type_Selected");
+       type = intent.getStringExtra("Type_Selected");*/
         if (subject.equals("MP")) {
             h1.setText("Microprocessor");
         }
@@ -40,7 +47,7 @@ public class MarksDisplay extends AppCompatActivity {
         else if (subject.equals("DAV")) {
             h1.setText("Data Analysis and Visualisation");
         }
-        if (type.equals("Assignment1")) {
+       if (type.equals("Assignment1")) {
             d1.setText("Assignment 1 Marks:");
             m1.setText("8");
         }
@@ -75,6 +82,7 @@ public class MarksDisplay extends AppCompatActivity {
 
       /*  Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
 */
+        return root;
     }
 }
 
