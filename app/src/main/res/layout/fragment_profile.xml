@@ -12,7 +12,7 @@
         android:layout_marginLeft="30sp"
         android:layout_marginRight="30sp"
         android:background="#B04400"
-        android:text="User Profile"
+        android:text="Student Profile"
         android:textSize="20sp"
         android:textColor="#FF914D"
         android:paddingStart="15sp"
