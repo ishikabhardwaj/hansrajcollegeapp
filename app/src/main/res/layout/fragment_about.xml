@@ -3,12 +3,133 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/teal_700"
+    android:background="@color/white"
+    android:orientation="vertical"
     tools:context=".AboutFragment">
+
+    <HorizontalScrollView
+        android:id="@+id/scrl1"
+        android:layout_width="wrap_content"
+        android:layout_height="300sp"
+        android:layout_gravity="center">
+
+        <LinearLayout
+            android:id="@+id/images"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="50sp"
+            android:layout_marginLeft="20sp"
+            android:layout_gravity="center">
+            <ImageView
+                android:id="@+id/for_blank"
+                android:layout_width="350sp"
+                android:layout_height="250sp"
+                android:layout_marginLeft="10sp"
+                android:src="@drawable/hrc5"
+                />
+            <ImageView
+                android:id="@+id/clg1"
+                android:layout_width="350sp"
+                android:layout_height="250sp"
+                android:layout_marginLeft="10sp"
+                android:src="@drawable/hrc5"
+                />
+            <ImageView
+                android:id="@+id/clg2"
+                android:layout_width="350sp"
+                android:layout_height="250sp"
+                android:layout_marginLeft="10sp"
+                android:src="@drawable/hrc3" />
+
+            <ImageView
+                android:id="@+id/clg3"
+                android:layout_width="350sp"
+                android:layout_height="250sp"
+                android:layout_marginLeft="10sp"
+                android:src="@drawable/hrc2"
+                />
+            <ImageView
+                android:id="@+id/clg4"
+                android:layout_width="300sp"
+                android:layout_height="250sp"
+                android:src="@drawable/hrc1"
+                />
+            <ImageView
+                android:id="@+id/clg5"
+                android:layout_width="350sp"
+                android:layout_height="250sp"
+                android:layout_marginLeft="10sp"
+                android:src="@drawable/hrc4"
+                />
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <ImageView
+        android:id="@+id/bg_rect"
+        android:layout_width="match_parent"
+        android:layout_height="300sp"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="30sp"
+        android:layout_marginLeft="20sp"
+        android:layout_marginRight="20sp"
+        android:background="#FFFFEE"
+        android:padding="10sp"
+        android:layout_below="@+id/scrl1"/>
     <TextView
+        android:id="@+id/aboutus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/scrl1"
+        android:layout_marginTop="45sp"
+        android:layout_marginLeft="35sp"
+        android:layout_marginRight="35sp"
+        android:background="#B04400"
+        android:text="About Us"
+        android:textSize="20sp"
+        android:textColor="#FF914D"
+        android:paddingStart="15sp"
+        android:paddingBottom="5sp"
+        android:paddingTop="5sp"/>
+    <ScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="About Fragment" />
+        android:layout_gravity="center"
+        android:layout_below="@+id/aboutus"
+        android:layout_marginTop="10sp">
+
+        <TextView
+            android:id="@+id/aboutus_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="5sp"
+            android:text="Welcome to Hansraj - one of the largest constituent Colleges of
+the University of Delhi - a premier institution, with highly qualified academicians
+imparting education in different fields, the College today enjoys a reputation for
+outstanding performance in academics, sports and extra-curricular activities. Rated
+among top ten Colleges of the country in Science, Commerce and Arts. The College ensures
+complete development of the body, mind and the soul while enshrining traditional Indian
+values in each of its students. The College was founded by the D.A.V. College Managing
+Committee on July 26, 1948 in the sacred memory of Mahatma Hansraj, a pioneer in the
+field of education. It is today one of the leading lights in the D.A.V. family of over
+700 institutions and one of the largest constituent Colleges of Delhi University. More
+than 5000 students on its rolls interact here with a galaxy of scholars on its faculty.
+The College has completed 67 years in the realm of imparting higher education. It has
+made significant and unparalleled contribution to Society in terms of producing numerous
+dignitaries scholars, intellectuals and sports persons who served different domains not
+only in our own country but even at international levels. Over the years, the College
+has built up an impressive infrastructure. It includes a well-stocked Central Library,
+Department libraries for Science subjects and a Book Bank for needy students. The
+College has six Computer Labs. and 18 Science laboratories. Its sports facilities
+include vast play ground, an Indoor Sports Complex, Playrooms,amphetheatre,lift
+facility and the only Electronic Shooting Range in the University."
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:layout_marginLeft="40sp"
+            android:layout_marginRight="40sp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            />
+    </ScrollView>
 
 </RelativeLayout>
