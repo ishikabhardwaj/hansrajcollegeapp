@@ -14,86 +14,6 @@
         android:layout_gravity="center_horizontal"
         android:background="@color/brownbg" />
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:backgroundTint="#E1CFC9"
-        app:cardCornerRadius="10dp"
-        app:cardElevation="40dp">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardView2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_margin="10dp"
-                android:backgroundTint="#D5A291"
-                app:cardCornerRadius="5dp"
-                app:cardElevation="40dp">
-
-                <TextView
-                    android:id="@+id/textView2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:text="Month :"
-                    android:textColor="@color/black"
-                    android:textStyle="bold" />
-            </androidx.cardview.widget.CardView>
-
-            <com.example.hansrajcollege.CustomSpinner
-                android:id="@+id/spinner5"
-                android:layout_width="85dp"
-                android:layout_height="30dp"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/bg_spinner" />
-
-            <View
-                android:layout_width="2dp"
-                android:layout_height="match_parent"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginLeft="13dp"
-                android:background="@color/brownbg" />
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardView6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="10dp"
-                android:backgroundTint="#D5A291"
-                app:cardCornerRadius="5dp"
-                app:cardElevation="40dp">
-
-                <TextView
-                    android:id="@+id/textView9"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:layout_marginLeft="290dp"
-                    android:text="Total Lectures Given :"
-                    android:textColor="@color/black"
-                    android:textStyle="bold" />
-            </androidx.cardview.widget.CardView>
-
-            <EditText
-                android:id="@+id/editTextNumber"
-                android:layout_width="40dp"
-                android:layout_height="30dp"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="10dp"
-                android:background="@drawable/bg_edittext"
-                android:ems="3"
-                android:inputType="number" />
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
-
     <View
         android:layout_width="match_parent"
         android:layout_height="2dp"
@@ -118,7 +38,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:divider="@color/brownbg"
         android:dividerHeight="2dp"
         android:drawSelectorOnTop="true"

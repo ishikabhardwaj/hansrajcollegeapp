@@ -10,10 +10,10 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView1"
-        android:layout_width="250dp"
-        android:layout_height="250dp"
-        android:backgroundTint="#E1CFC9"
+        android:layout_width="match_parent"
+        android:layout_height="270dp"
         android:layout_marginTop="30dp"
+        android:backgroundTint="#E1CFC9"
         app:cardCornerRadius="15dp"
         app:cardElevation="12dp">
 
@@ -24,51 +24,128 @@
             android:layout_marginTop="10dp"
             android:orientation="vertical">
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardView2"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10dp"
+                    android:backgroundTint="#D5A291"
+                    app:cardCornerRadius="10dp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:src="@drawable/ic_subject" />
+
+                    <TextView
+                        android:id="@+id/textView0"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="40dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="10dp"
+                        android:text="Select Subject"
+                        android:textAppearance="?android:textAppearanceMedium"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+                </androidx.cardview.widget.CardView>
+
+                <com.example.hansrajcollege.CustomSpinner
+                    android:id="@+id/spinnercourse"
+                    android:layout_width="130dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="23dp"
+                    android:background="@drawable/bg_spinner" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_margin="10dp"
-                android:backgroundTint="#D5A291"
-                app:cardCornerRadius="10dp"
-                app:cardElevation="40dp">
+                android:orientation="horizontal">
 
-                <ImageView
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:src="@drawable/ic_subject" />
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="115dp"
+                    android:backgroundTint="#D5A291"
+                    app:cardCornerRadius="5dp">
 
-                <TextView
-                    android:id="@+id/textView2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="40dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginRight="10dp"
-                    android:text="Select Subject"
-                    android:textAppearance="?android:textAppearanceMedium"
-                    android:textColor="@color/black"
-                    android:textStyle="bold" />
-            </androidx.cardview.widget.CardView>
+                    <TextView
+                        android:id="@+id/textView2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:text="Month :"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+                </androidx.cardview.widget.CardView>
 
-            <com.example.hansrajcollege.CustomSpinner
-                android:id="@+id/spinnercourse"
-                android:layout_width="200dp"
-                android:layout_height="40dp"
+                <com.example.hansrajcollege.CustomSpinner
+                    android:id="@+id/spinner5"
+                    android:layout_width="100dp"
+                    android:layout_height="30dp"
+                    android:layout_margin="23dp"
+                    android:background="@drawable/bg_spinner" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_margin="40dp"
-                android:background="@drawable/bg_spinner" />
+                android:orientation="horizontal">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="25dp"
+                    android:backgroundTint="#D5A291"
+                    app:cardCornerRadius="5dp">
+
+                    <TextView
+                        android:id="@+id/textView9"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_marginLeft="290dp"
+                        android:text="Total Lectures Given :"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
+                </androidx.cardview.widget.CardView>
+
+                <EditText
+                    android:id="@+id/editTextNumber"
+                    android:layout_width="60dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="23dp"
+                    android:background="@drawable/bg_edittext"
+                    android:ems="3"
+                    android:inputType="number" />
+            </LinearLayout>
 
             <Button
                 android:id="@+id/buttonforsubject"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:backgroundTint="@color/brownbg"
                 android:layout_margin="10dp"
-                android:text="Proceed" />
+                android:backgroundTint="@color/brownbg"
+                android:text="Upload File" />
 
         </LinearLayout>
 
