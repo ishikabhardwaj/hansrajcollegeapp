@@ -18,6 +18,7 @@ public class AddAttendanceFragment extends Fragment implements CustomSpinner.OnS
     CustomSpinner s1,s2;
     Button b;
     String Subject[]={"Select Subject", "Programming in Java","Android Development","Software Engineering","Microprocessor"};
+    String Months[]={"Month","January","February","March","April","May","June","July","August","Septemer","October","November","December"};
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -27,16 +28,15 @@ public class AddAttendanceFragment extends Fragment implements CustomSpinner.OnS
         ArrayAdapter aa = new ArrayAdapter(this.getActivity(), android.R.layout.simple_spinner_item, Subject);
         aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         s1.setAdapter(aa);
+        s2 = (CustomSpinner) root.findViewById(R.id.spinner5);
+        s2.setSpinnerEventsListener(this);
+        ArrayAdapter ab = new ArrayAdapter(this.getActivity(), android.R.layout.simple_spinner_item, Months);
+        ab.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        s2.setAdapter(ab);
         b = (Button) root.findViewById(R.id.buttonforsubject);
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Fragment fragment = new ListOfStudentsFragment();
-                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.fragment_container, fragment);
-                fragmentTransaction.addToBackStack(null);
-                fragmentTransaction.commit();
             }
         });
         return root;
