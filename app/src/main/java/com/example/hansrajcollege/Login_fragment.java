@@ -1,10 +1,12 @@
 package com.example.hansrajcollege;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -133,11 +135,25 @@ int selected_designation;
                                 Log.d("Data success", response.toString());
                                 //if (selected_designation == 0) {
                                     //intent to student vala dashboard
-                                    startActivity(new Intent(getContext(), StudentDashboard.class));
                                 //} else if (selected_designation == 1) {
                                     //intent to teacher vala dashboard
                                  //   startActivity(new Intent(getContext(), TeacherDashboard2.class));
                                 //}
+
+                                SharedPreferences pref=getContext().getSharedPreferences("MyPref",0);
+                                SharedPreferences.Editor editor=pref.edit();
+                                editor.putInt("semester",response.body().getSemester());
+                                editor.putInt("university_roll_no",response.body().getUniversity_roll_no());
+                                editor.putString("name",response.body().getName());
+                                editor.putString("email",response.body().getEmail());
+                                editor.putString("course",response.body().getCourse());
+                                editor.putString("refresh",response.body().getToken().getRefresh());
+                                editor.putString("access",response.body().getToken().getAccess());
+                                editor.commit();
+
+                                startActivity(new Intent(getContext(), StudentDashboard.class));
+
+
                             } else {
                                 Toast.makeText(getActivity(), "Login failed", Toast.LENGTH_LONG).show();
                                 Log.d("Data fail", response.toString());
@@ -166,6 +182,17 @@ int selected_designation;
                                   //  startActivity(new Intent(getContext(), StudentDashboard.class));
                                 //} else if (selected_designation == 1) {
                                     //intent to teacher vala dashboard
+
+                                SharedPreferences pref=getContext().getSharedPreferences("MyPref",0);
+                                SharedPreferences.Editor editor=pref.edit();
+                                editor.putString("name",response.body().getName());
+                                editor.putString("email",response.body().getEmail());
+                                editor.putString("department",response.body().getDepartment());
+                                editor.putString("refresh",response.body().getToken().getRefresh());
+                                editor.putString("access",response.body().getToken().getAccess());
+                                editor.commit();
+
+
                                     startActivity(new Intent(getContext(), TeacherDashboard2.class));
                                 //}
                             } else {
