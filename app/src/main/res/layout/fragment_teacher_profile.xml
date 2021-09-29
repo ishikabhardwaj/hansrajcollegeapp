@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TeacherProfile">
+    <TextView
+        android:id="@+id/profiletext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="90sp"
+        android:layout_marginLeft="30sp"
+        android:layout_marginRight="30sp"
+        android:background="#B04400"
+        android:text="Faculty Profile"
+        android:textSize="20sp"
+        android:textColor="#FF914D"
+        android:paddingStart="15sp"
+        android:paddingBottom="5sp"
+        android:paddingTop="5sp"/>
+    <ImageView
+        android:id="@+id/addpic"
+        android:layout_width="100sp"
+        android:layout_height="100sp"
+        android:layout_below="@+id/profiletext"
+        android:src="@drawable/studentprofileimage"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30sp"
+        />
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/addpic"
+        android:layout_marginTop="20sp"
+        android:layout_marginLeft="30sp"
+        android:layout_marginRight="30sp"
+        android:id="@+id/profilelist"
+        android:divider="#D9D9D9"
+        android:dividerHeight="2sp"
+        android:listSelector="#FFFFEE"
+        />
+
+</RelativeLayout>

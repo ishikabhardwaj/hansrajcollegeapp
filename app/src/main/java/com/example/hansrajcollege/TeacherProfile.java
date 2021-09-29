@@ -22,17 +22,17 @@ import java.util.List;
 import java.util.Iterator;
 
 
-public class ProfileFragment extends Fragment {
+public class TeacherProfile extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        //will return inflated layout at the end
-        View view =   inflater.inflate(R.layout.fragment_profile,container,false);
+        //will return inflater.inflate(R.layout.fragment_profile, container, false) at the end
+        View view =   inflater.inflate(R.layout.fragment_teacher_profile,container,false);
 
-        String namelist[] = {"USER ID", "NAME", "EMAIL", "COURSE", "SEMESTER","UNIVERSITY ROLL NUMBER"};
-        String valuelist[] = {"8151","Varda Jain","vardajain17@gmail.com","B.Sc. (H) Computer Science","5","19825570001"};
+        String namelist[] = {"USER ID", "NAME","DEPARTMENT", "EMAIL", };
+        String valuelist[] = {"12225","Sunita Chand","Computer Science","sunita@hrc.du.ac.in"};
 
         ListView profilelist=(ListView) view.findViewById(R.id.profilelist);
         HashMap<String,String> hashMap=new HashMap<>();//create a hashmap to store the profile list items in key value pair
