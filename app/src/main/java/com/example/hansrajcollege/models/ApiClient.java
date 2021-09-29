@@ -28,7 +28,7 @@ public class ApiClient {
                         Request orignalRequest=chain.request();
 
                         Request newRequest=orignalRequest.newBuilder()
-                                .header("Authorization",token)
+                                .header("Authorization","Bearer "+token)
                                 .build();
 
                         return chain.proceed(newRequest);

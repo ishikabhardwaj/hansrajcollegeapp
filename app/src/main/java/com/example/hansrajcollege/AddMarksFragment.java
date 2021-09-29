@@ -1,8 +1,10 @@
 package com.example.hansrajcollege;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -13,10 +15,21 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
+import com.example.hansrajcollege.models.ApiClient;
+import com.example.hansrajcollege.models.subject;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 
 public class AddMarksFragment extends Fragment implements CustomSpinner.OnSpinnerEventsListener {
     CustomSpinner s5, s6, s7;
     Button b4;
+    ArrayList<String> subj=new ArrayList<>();
     String subject[] = {"Select Subject", "MP", "TOC", "IT", "DAV"};
     String Number[] = {"Select", "Assignment", "Internal"};
     String Empty[] = {"Select"};
@@ -27,6 +40,8 @@ public class AddMarksFragment extends Fragment implements CustomSpinner.OnSpinne
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+
+        populate_spinner();
         View root = inflater.inflate(R.layout.fragment_add_marks, container, false);
         s5 = (CustomSpinner) root.findViewById(R.id.spinner5);
         s6 = (CustomSpinner) root.findViewById(R.id.spinner6);
@@ -36,7 +51,7 @@ public class AddMarksFragment extends Fragment implements CustomSpinner.OnSpinne
         s7.setSpinnerEventsListener(this);
 
 
-        ArrayAdapter sub = new ArrayAdapter(this.getActivity(), android.R.layout.simple_spinner_item, subject);
+        ArrayAdapter sub = new ArrayAdapter(this.getActivity(), android.R.layout.simple_spinner_item, subj);
         ArrayAdapter n1 = new ArrayAdapter(this.getActivity(), android.R.layout.simple_spinner_item, Number);
         ArrayAdapter an1 = new ArrayAdapter(this.getActivity(), android.R.layout.simple_spinner_item, ANumber);
         ArrayAdapter ian1 = new ArrayAdapter(this.getActivity(), android.R.layout.simple_spinner_item, INumber);
@@ -343,6 +358,33 @@ public class AddMarksFragment extends Fragment implements CustomSpinner.OnSpinne
         });
         return root;
     }
+
+    private void populate_spinner(){
+        SharedPreferences pref=getContext().getSharedPreferences("MyPref",0);
+
+        Call<List<com.example.hansrajcollege.models.subject>> populate= ApiClient.getUserService(pref.getString("access",null)).subject_list();
+        populate.enqueue(new Callback<List<subject>>() {
+            @Override
+            public void onResponse(Call<List<subject>> call, Response<List<subject>> response) {
+                for(int i=0;i<response.body().size();i++){
+                    subj.add(response.body().get(i).getSubject_name());
+                }
+
+                Log.d("SAB",subj.toString());
+
+            }
+
+            @Override
+            public void onFailure(Call<List<subject>> call, Throwable t) {
+                Log.d("ERROR",t.getLocalizedMessage());
+
+            }
+        });
+    }
+
+
+
+
 
     @Override
     public void onPopupWindowOpened(Spinner spinner) {

@@ -4,6 +4,9 @@ import com.example.hansrajcollege.models.FacultyLoginResponse;
 import com.example.hansrajcollege.models.LoginRequest;
 import com.example.hansrajcollege.models.StudentLoginResponse;
 import com.example.hansrajcollege.models.SubjectList;
+import com.example.hansrajcollege.models.subject;
+
+import java.util.List;
 
 import retrofit2.Call;
 
@@ -20,6 +23,6 @@ public interface UserService {
     Call<FacultyLoginResponse> userLogin_F(@Body LoginRequest loginRequest);
 
     @GET("faculty/subjects-list/")
-    Call<SubjectList> subject_list();
+    Call<List<subject>> subject_list();
 
 }

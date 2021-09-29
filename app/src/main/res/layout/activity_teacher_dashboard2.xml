@@ -33,7 +33,7 @@
                     android:minHeight="?attr/actionBarSize"
                     android:theme="@color/brown"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:title="Student"
+                    app:title="Teacher"
                     app:titleMarginTop="20dp"
                     app:titleTextColor="@color/white" />
 
