@@ -1,6 +1,5 @@
 package com.example.hansrajcollege;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -17,6 +16,9 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import com.example.hansrajcollege.models.FacultyLoginResponse;
+import com.example.hansrajcollege.models.LoginRequest;
+import com.example.hansrajcollege.models.StudentLoginResponse;
 import com.google.gson.Gson;
 
 import java.util.concurrent.TimeUnit;
@@ -72,11 +74,9 @@ int selected_designation;
                     RadioButton selected_R_button = (RadioButton) root.findViewById(selected_id);
                     //Toast.makeText(getActivity(),selected_R_button.getText(),Toast.LENGTH_LONG).show();
                    if (selected_R_button.getText().equals("Student")) {
-                        Toast.makeText(getActivity(),"Student Selected",Toast.LENGTH_LONG).show();
                         selected_designation = 0;
                     }
                     else if (selected_R_button.getText().equals("Faculty")) {
-                        Toast.makeText(getActivity(),"Faculty Selected",Toast.LENGTH_LONG).show();
                         selected_designation = 1;
                     }
                     else {
@@ -95,7 +95,7 @@ int selected_designation;
         });
         return root;
     }
-
+            //12230
             private void login() {
                 LoginRequest loginRequest = new LoginRequest();
                 loginRequest.setUid(userName.getText().toString());
@@ -120,38 +120,71 @@ int selected_designation;
 
 
                 UserService userService = retrofit.create(UserService.class);
-                Call<LoginResponse> loginResponseCall = userService.userLogin(loginRequest);
-                loginResponseCall.enqueue(new Callback<LoginResponse>() {
-                    @Override
-                    public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
-                        if (response.isSuccessful()) {
-                            //Toast.makeText(getActivity(), "Login successful", Toast.LENGTH_LONG).show();
 
-                            Log.d("Data success", response.toString());
-                            if(selected_designation==0)
-                            {
-                                //intent to student vala dashboard
-                                startActivity(new Intent(getContext(),StudentDashboard.class));
-                            }
-                            else if(selected_designation==1)
-                            {
-                                //intent to teacher vala dashboard
-                                startActivity(new Intent(getContext(),TeacherDashboard2.class));
+
+                if (selected_designation == 0) {
+                    Call<StudentLoginResponse> loginResponseCall = userService.userLogin(loginRequest);
+                    loginResponseCall.enqueue(new Callback<StudentLoginResponse>() {
+                        @Override
+                        public void onResponse(Call<StudentLoginResponse> call, Response<StudentLoginResponse> response) {
+                            if (response.isSuccessful()) {
+                                //Toast.makeText(getActivity(), "Login successful", Toast.LENGTH_LONG).show();
+
+                                Log.d("Data success", response.toString());
+                                //if (selected_designation == 0) {
+                                    //intent to student vala dashboard
+                                    startActivity(new Intent(getContext(), StudentDashboard.class));
+                                //} else if (selected_designation == 1) {
+                                    //intent to teacher vala dashboard
+                                 //   startActivity(new Intent(getContext(), TeacherDashboard2.class));
+                                //}
+                            } else {
+                                Toast.makeText(getActivity(), "Login failed", Toast.LENGTH_LONG).show();
+                                Log.d("Data fail", response.toString());
                             }
                         }
-                        else {
-                            Toast.makeText(getActivity(), "Login failed", Toast.LENGTH_LONG).show();
-                            Log.d("Data fail", response.toString());
-                            startActivity(new Intent(getContext(),TeacherDashboard2.class));
+
+                        @Override
+                        public void onFailure(Call<StudentLoginResponse> call, Throwable t) {
+                            Toast.makeText(getActivity(), "Throwable fail" + t.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+                            Log.d("Data fail", t.getLocalizedMessage());
                         }
-                    }
-                    @Override
-                    public void onFailure(Call<LoginResponse> call, Throwable t) {
-                        Toast.makeText(getActivity(), "Throwable fail" + t.getLocalizedMessage(), Toast.LENGTH_LONG).show();
-                        Log.d("Data fail", t.getLocalizedMessage());
-                    }
-                });
-            }
+                    });
+                }
+
+                else{
+                    Call<FacultyLoginResponse> loginResponseCall = userService.userLogin_F(loginRequest);
+                    loginResponseCall.enqueue(new Callback<FacultyLoginResponse>() {
+                        @Override
+                        public void onResponse(Call<FacultyLoginResponse> call, Response<FacultyLoginResponse> response) {
+                            if (response.isSuccessful()) {
+                                //Toast.makeText(getActivity(), "Login successful", Toast.LENGTH_LONG).show();
+
+                                Log.d("Data success", response.toString());
+                                //if (selected_designation == 0) {
+                                    //intent to student vala dashboard
+                                  //  startActivity(new Intent(getContext(), StudentDashboard.class));
+                                //} else if (selected_designation == 1) {
+                                    //intent to teacher vala dashboard
+                                    startActivity(new Intent(getContext(), TeacherDashboard2.class));
+                                //}
+                            } else {
+                                Toast.makeText(getActivity(), "Login failed", Toast.LENGTH_LONG).show();
+                                Log.d("Data fail", response.toString());
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<FacultyLoginResponse> call, Throwable t) {
+                            Toast.makeText(getActivity(), "Throwable fail" + t.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+                            Log.d("Data fail", t.getLocalizedMessage());
+                        }
+                    });
+                }
+
+
+    }
+
 
 
 

@@ -1,4 +1,4 @@
-package com.example.hansrajcollege;
+package com.example.hansrajcollege.models;
 
 public class LoginRequest {
     private String uid;
