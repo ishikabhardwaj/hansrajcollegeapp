@@ -69,16 +69,16 @@ public class MarksFragment extends Fragment implements CustomSpinner.OnSpinnerEv
                 switch(radioButton.getId()) {
                     case R.id.Assignment:
                         if (checked)
-                            //Do some logic if the male radio button is checked
+                        //Do some logic if the male radio button is checked
                         {an1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                             s6.setAdapter(an1);}
-                            break;
+                        break;
                     case R.id.Internal:
                         if (checked)
-                            //Do some logic if the female radio button is checked
+                        //Do some logic if the female radio button is checked
                         {ian1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                             s6.setAdapter(ian1);}
-                            break;
+                        break;
                     default:
                         n1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                         s6.setAdapter(n1);
@@ -87,8 +87,8 @@ public class MarksFragment extends Fragment implements CustomSpinner.OnSpinnerEv
             }
         });
 
-      b4 = (Button) root.findViewById(R.id.button4);
-      b4.setOnClickListener(new View.OnClickListener() {
+        b4 = (Button) root.findViewById(R.id.button4);
+        b4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (type.getCheckedRadioButtonId() == -1) {

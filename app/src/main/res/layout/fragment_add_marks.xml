@@ -1,15 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FeesFragment">
+    tools:context=".AddMarksFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="Add Marks Fragment" />
+    <LinearLayout
+        android:layout_width="340dp"
+        android:layout_height="300dp"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:background="@color/white"
+        android:orientation="vertical">
 
-</RelativeLayout>
+
+        <com.example.hansrajcollege.CustomSpinner
+            android:id="@+id/spinner5"
+            android:layout_width="270dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/bg_spinner"
+            android:visibility="visible"
+            android:spinnerMode="dropdown"
+            />
+
+
+
+        <com.example.hansrajcollege.CustomSpinner
+            android:id="@+id/spinner6"
+            android:layout_width="270dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/bg_spinner"
+            android:spinnerMode="dropdown"/>
+
+        <com.example.hansrajcollege.CustomSpinner
+            android:id="@+id/spinner7"
+            android:layout_width="270dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/bg_spinner"
+            android:spinnerMode="dropdown"/>
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:text="SUBMIT"
+            android:backgroundTint="#b04400" />
+    </LinearLayout>
+
+</FrameLayout>
