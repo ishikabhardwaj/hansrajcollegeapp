@@ -1,6 +1,8 @@
 package com.example.hansrajcollege;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 
@@ -22,6 +24,10 @@ public class TeacherDashboard2 extends AppCompatActivity {
         setContentView(R.layout.activity_teacher_dashboard2);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPref", 0);
+
+
         //getSupportActionBar().setIcon(R.drawable.ic_baseline_account_circle_24);
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
 
