@@ -32,7 +32,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         int roll=myListData.getmRollNo();
         String r=Integer.toString(roll);
         holder.textview3.setText(r);
-
+        holder.textview4.setText(myListData.getmEmail());
     }
 
 
@@ -42,13 +42,13 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView textView1,textview2,textview3;
+        public TextView textView1,textview2,textview3,textview4;
         public ViewHolder(View itemView) {
             super(itemView);
             this.textView1 = (TextView) itemView.findViewById(R.id.textView2);
             this.textview2 = (TextView) itemView.findViewById(R.id.textView1);
             this.textview3 = (TextView) itemView.findViewById(R.id.textView3);
-
+            this.textview4 = (TextView) itemView.findViewById(R.id.textView8);
         }
     }
 }

@@ -8,63 +8,62 @@
     android:gravity="center"
     android:background="@color/white">
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardView1"
-            android:layout_width="250dp"
-            android:layout_height="250dp"
-            android:backgroundTint="#E1CFC9"
-            android:layout_marginTop="30dp"
-            app:cardCornerRadius="15dp"
-            app:cardElevation="12dp">
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView1"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#E1CFC9"
+        app:cardCornerRadius="15dp"
+        app:cardElevation="12dp">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center_horizontal|center_vertical"
-                android:layout_marginTop="10dp"
-                android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:layout_margin="10dp"
+            android:orientation="vertical">
 
-                <ImageView
-                    android:id="@+id/imageView"
-                    android:layout_width="200dp"
-                    android:layout_height="200dp"
-                    android:layout_gravity="center_horizontal"
-                    android:src="@drawable/ic_add_attendance" />
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/ic_add_attendance" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="30dp"
-                    android:layout_gravity="center"
-                    android:text="Upload Attendance"
-                    android:textAlignment="center"
-                    android:textColor="@android:color/black"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:text="Upload Attendance"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
-            </LinearLayout>
+        </LinearLayout>
 
-        </androidx.cardview.widget.CardView>
+    </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView2"
-        android:layout_width="250dp"
-        android:layout_height="250dp"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:backgroundTint="#E1CFC9"
         app:cardCornerRadius="15dp"
         app:cardElevation="12dp">
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal|center_vertical"
-            android:layout_marginTop="10dp"
+            android:layout_margin="10dp"
             android:orientation="vertical">
 
             <ImageView
                 android:id="@+id/imageView2"
-                android:layout_width="200dp"
-                android:layout_height="200dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:layout_gravity="center_horizontal"
                 android:src="@drawable/ic_add_marks" />
 
@@ -73,6 +72,42 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="Upload Marks"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView3"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:backgroundTint="#E1CFC9"
+        app:cardCornerRadius="15dp"
+        app:cardElevation="12dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:layout_margin="10dp"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/ic_student_information" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Student Information"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
                 android:textSize="18sp"
