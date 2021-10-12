@@ -1,5 +1,6 @@
 package com.example.hansrajcollege;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,7 +8,9 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -30,6 +33,11 @@ public class ListOfStudentsFragment extends Fragment {
         RecyclerView list=(RecyclerView) root.findViewById(R.id.list);
         list.setLayoutManager(new LinearLayoutManager(getActivity()));
         list.setAdapter(new RecyclerAdapter(words));
+        DividerItemDecoration horizontalDecoration = new DividerItemDecoration(list.getContext(),
+                DividerItemDecoration.VERTICAL);
+        Drawable horizontalDivider = ContextCompat.getDrawable(getActivity(), R.drawable.vertical_divider);
+        horizontalDecoration.setDrawable(horizontalDivider);
+        list.addItemDecoration(horizontalDecoration);
         return root;
     }
 
