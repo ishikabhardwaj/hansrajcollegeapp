@@ -37,13 +37,14 @@ public class AddAttendanceFragment extends Fragment implements CustomSpinner.OnS
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         populate_spinner();
+        Log.d("SPINNER 1",sub.toString());
+
         View root = inflater.inflate(R.layout.fragment_add_attendance, container, false);
 
         s1 = (CustomSpinner) root.findViewById(R.id.spinnercourse);
         s1.setSpinnerEventsListener(this);
-        ArrayAdapter aa = new ArrayAdapter(this.getActivity(), android.R.layout.simple_spinner_item, sub);
-        aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        s1.setAdapter(aa);
+
+
         s2 = (CustomSpinner) root.findViewById(R.id.spinner5);
         s2.setSpinnerEventsListener(this);
         ArrayAdapter ab = new ArrayAdapter(this.getActivity(), android.R.layout.simple_spinner_item, Months);
@@ -53,6 +54,7 @@ public class AddAttendanceFragment extends Fragment implements CustomSpinner.OnS
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.d("SPINNER 1",s1.getSelectedItem().toString());
             }
         });
         return root;
@@ -68,8 +70,12 @@ public class AddAttendanceFragment extends Fragment implements CustomSpinner.OnS
                 for(int i=0;i<response.body().size();i++){
                     sub.add(response.body().get(i).getSubject_name());
                 }
+                ArrayAdapter aa = new ArrayAdapter(getActivity(), android.R.layout.simple_spinner_item, sub);
+                aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                s1.setAdapter(aa);
 
                 Log.d("SAB",sub.toString());
+
 
             }
 
@@ -80,6 +86,8 @@ public class AddAttendanceFragment extends Fragment implements CustomSpinner.OnS
             }
         });
     }
+
+
 
 
 

@@ -51,14 +51,14 @@ public class AddMarksFragment extends Fragment implements CustomSpinner.OnSpinne
         s7.setSpinnerEventsListener(this);
 
 
-        ArrayAdapter sub = new ArrayAdapter(this.getActivity(), android.R.layout.simple_spinner_item, subj);
+
         ArrayAdapter n1 = new ArrayAdapter(this.getActivity(), android.R.layout.simple_spinner_item, Number);
         ArrayAdapter an1 = new ArrayAdapter(this.getActivity(), android.R.layout.simple_spinner_item, ANumber);
         ArrayAdapter ian1 = new ArrayAdapter(this.getActivity(), android.R.layout.simple_spinner_item, INumber);
         ArrayAdapter emp = new ArrayAdapter(this.getActivity(), android.R.layout.simple_spinner_item, Empty);
 
-        sub.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        s5.setAdapter(sub);
+
+
         s6.setAdapter(n1);
         s6.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -369,6 +369,9 @@ public class AddMarksFragment extends Fragment implements CustomSpinner.OnSpinne
                 for(int i=0;i<response.body().size();i++){
                     subj.add(response.body().get(i).getSubject_name());
                 }
+                ArrayAdapter sub = new ArrayAdapter(getActivity(), android.R.layout.simple_spinner_item, subj);
+                sub.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                s5.setAdapter(sub);
 
                 Log.d("SAB",subj.toString());
 

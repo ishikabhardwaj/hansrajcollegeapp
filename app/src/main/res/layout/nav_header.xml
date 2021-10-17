@@ -22,18 +22,20 @@
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/username"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingTop="8dp"
-            android:text="Harshit Jaiswal"
+            android:text="Username"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
             android:textColor="#B63108"
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/useremailID"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="h@jaiswal"
+            android:text="user@emailID"
             android:textColor="#B63108" />
 
     </LinearLayout>

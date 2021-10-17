@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginTop="70.5dp"
-    android:orientation="vertical"
-    tools:context=".Marks_Fragment">
-
-
+    android:layout_marginTop="70dp"
+    android:orientation="vertical">
     <View
         android:layout_width="match_parent"
         android:layout_height="2dp"
@@ -20,7 +16,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="10dp"
-        android:text="List of Students"
+        android:text="Select Subject"
         android:textColor="@color/black"
         android:textStyle="bold" />
 
@@ -29,14 +25,13 @@
         android:layout_height="2dp"
         android:layout_gravity="center_horizontal"
         android:background="@color/brownbg" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/list"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:divider="@color/brownbg"
-        android:dividerHeight="2dp"
-        android:drawSelectorOnTop="true"
-        android:headerDividersEnabled="true"
-        android:orientation="vertical" />
+<ListView
+    android:id="@+id/list"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    style="@style/Widget.AppCompat.ListView.Menu"
+    android:layout_height="match_parent"
+    android:divider="@color/brownbg"
+    android:dividerHeight="2dp"
+    android:drawSelectorOnTop="true"/>
 </LinearLayout>

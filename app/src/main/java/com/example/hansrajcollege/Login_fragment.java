@@ -151,6 +151,8 @@ int selected_designation;
                                 editor.putString("access",response.body().getToken().getAccess());
                                 editor.commit();
 
+
+
                                 startActivity(new Intent(getContext(), StudentDashboard.class));
 
 
@@ -187,10 +189,12 @@ int selected_designation;
                                 SharedPreferences.Editor editor=pref.edit();
                                 editor.putString("name",response.body().getName());
                                 editor.putString("email",response.body().getEmail());
+                                editor.putString("uid",response.body().getUid());
                                 editor.putString("department",response.body().getDepartment());
                                 editor.putString("refresh",response.body().getToken().getRefresh());
                                 editor.putString("access",response.body().getToken().getAccess());
                                 editor.commit();
+
 
 
                                     startActivity(new Intent(getContext(), TeacherDashboard2.class));

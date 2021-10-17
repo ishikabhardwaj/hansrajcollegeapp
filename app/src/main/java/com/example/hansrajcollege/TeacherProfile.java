@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,8 +34,16 @@ public class TeacherProfile extends Fragment {
         View view =   inflater.inflate(R.layout.fragment_teacher_profile,container,false);
         SharedPreferences pref=getContext().getSharedPreferences("MyPref",0);
 
-        String namelist[] = {"USER ID", "NAME","DEPARTMENT", "EMAIL", };
+        String namelist[] = {"USER ID", "NAME","DEPARTMENT", "EMAIL"};
         String valuelist[] = {pref.getString("uid",null),pref.getString("name",null),pref.getString("department",null),pref.getString("email",null)};
+        //String valuelist[] = {"12230","Suyash Kumar","Computer Science","suyash@hrc.du.ac.in"};
+
+
+
+        Log.d("NAMEEMEMEMMEME",pref.getString("name",null));
+        Log.d("USer",pref.getString("uid",null));
+        Log.d("DEPART",pref.getString("department",null));
+        Log.d("EAmal",pref.getString("email",null));
 
         ListView profilelist=(ListView) view.findViewById(R.id.profilelist);
         HashMap<String,String> hashMap=new HashMap<>();//create a hashmap to store the profile list items in key value pair
