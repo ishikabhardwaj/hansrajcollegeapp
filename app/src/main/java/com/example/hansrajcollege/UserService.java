@@ -4,6 +4,8 @@ import com.example.hansrajcollege.models.FacultyLoginResponse;
 import com.example.hansrajcollege.models.LoginRequest;
 import com.example.hansrajcollege.models.StudentLoginResponse;
 import com.example.hansrajcollege.models.SubjectList;
+import com.example.hansrajcollege.models.student_details;
+import com.example.hansrajcollege.models.studentlist_request;
 import com.example.hansrajcollege.models.subject;
 
 import java.util.List;
@@ -24,5 +26,8 @@ public interface UserService {
 
     @GET("faculty/subjects-list/")
     Call<List<subject>> subject_list();
+
+    @POST("faculty/students-details/")
+    Call<List<student_details>> student_list(@Body studentlist_request studentlist_request);
 
 }

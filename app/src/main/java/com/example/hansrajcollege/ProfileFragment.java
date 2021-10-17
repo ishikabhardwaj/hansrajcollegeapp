@@ -1,5 +1,6 @@
 package com.example.hansrajcollege;
 
+import android.content.SharedPreferences;
 import android.icu.text.Edits;
 import android.os.Bundle;
 import android.app.Activity;
@@ -30,9 +31,11 @@ public class ProfileFragment extends Fragment {
         // Inflate the layout for this fragment
         //will return inflated layout at the end
         View view =   inflater.inflate(R.layout.fragment_profile,container,false);
+        SharedPreferences pref=getContext().getSharedPreferences("MyPref",0);
+
 
         String namelist[] = {"USER ID", "NAME", "EMAIL", "COURSE", "SEMESTER","UNIVERSITY ROLL NUMBER"};
-        String valuelist[] = {"8151","Varda Jain","vardajain17@gmail.com","B.Sc. (H) Computer Science","5","19825570001"};
+        String valuelist[] = {pref.getString("uid",null),pref.getString("name",null),pref.getString("email",null),pref.getString("course",null), String.valueOf(pref.getInt("semester",0)),pref.getString("university_roll_no",null)};
 
         ListView profilelist=(ListView) view.findViewById(R.id.profilelist);
         HashMap<String,String> hashMap=new HashMap<>();//create a hashmap to store the profile list items in key value pair

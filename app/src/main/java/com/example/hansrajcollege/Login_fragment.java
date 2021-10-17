@@ -143,12 +143,13 @@ int selected_designation;
                                 SharedPreferences pref=getContext().getSharedPreferences("MyPref",0);
                                 SharedPreferences.Editor editor=pref.edit();
                                 editor.putInt("semester",response.body().getSemester());
-                                editor.putInt("university_roll_no",response.body().getUniversity_roll_no());
+                                editor.putString("university_roll_no",response.body().getUniversity_roll_no());
                                 editor.putString("name",response.body().getName());
                                 editor.putString("email",response.body().getEmail());
                                 editor.putString("course",response.body().getCourse());
                                 editor.putString("refresh",response.body().getToken().getRefresh());
                                 editor.putString("access",response.body().getToken().getAccess());
+                                editor.putString("uid",response.body().getUid());
                                 editor.commit();
 
 

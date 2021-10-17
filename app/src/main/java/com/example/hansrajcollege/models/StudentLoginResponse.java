@@ -4,8 +4,8 @@ public class StudentLoginResponse {
     private String uid;
     private int role;
     private com.example.hansrajcollege.models.token token;
-    private String name,email,course;
-    private int semester,university_roll_no;
+    private String name,email,course,university_roll_no;
+    private int semester;
 
     public String getUid() {
         return uid;
@@ -63,11 +63,11 @@ public class StudentLoginResponse {
         this.semester = semester;
     }
 
-    public int getUniversity_roll_no() {
+    public String getUniversity_roll_no() {
         return university_roll_no;
     }
 
-    public void setUniversity_roll_no(int university_roll_no) {
+    public void setUniversity_roll_no(String university_roll_no) {
         this.university_roll_no = university_roll_no;
     }
 }
