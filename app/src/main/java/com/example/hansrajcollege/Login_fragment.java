@@ -76,7 +76,7 @@ int selected_designation;
                     RadioButton selected_R_button = (RadioButton) root.findViewById(selected_id);
                     //Toast.makeText(getActivity(),selected_R_button.getText(),Toast.LENGTH_LONG).show();
                    if (selected_R_button.getText().equals("Student")) {
-                        selected_designation = 0;
+                        selected_designation = 2;
                     }
                     else if (selected_R_button.getText().equals("Faculty")) {
                         selected_designation = 1;
@@ -124,7 +124,7 @@ int selected_designation;
                 UserService userService = retrofit.create(UserService.class);
 
 
-                if (selected_designation == 0) {
+                if (selected_designation == 2) {
                     Call<StudentLoginResponse> loginResponseCall = userService.userLogin(loginRequest);
                     loginResponseCall.enqueue(new Callback<StudentLoginResponse>() {
                         @Override
