@@ -65,19 +65,20 @@
         </LinearLayout>
     </HorizontalScrollView>
 
-    <ImageView
-        android:id="@+id/bg_rect"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="300sp"
-        android:layout_centerInParent="true"
-        android:layout_marginTop="30sp"
-        android:layout_marginLeft="20sp"
-        android:layout_marginRight="20sp"
-        android:background="#FFFFEE"
-        android:padding="10sp"
-        android:layout_below="@+id/scrl1"/>
+        android:fillViewport="true"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5sp"
+        android:layout_below="@+id/scrl1"
+        android:paddingBottom="5sp"
+        >
 
-        <TextView
+    <LinearLayout android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+    <TextView
         android:id="@+id/aboutus"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -92,18 +93,13 @@
         android:paddingStart="15sp"
         android:paddingBottom="5sp"
         android:paddingTop="5sp"/>
-        <ScrollView
-        android:id="@+id/scroll_aboutus"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_below="@+id/aboutus"
-        android:layout_marginTop="10sp">
+
 
         <TextView
             android:id="@+id/aboutus_content"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@id/aboutus"
             android:paddingTop="5sp"
             android:text="Welcome to Hansraj - one of the largest constituent Colleges of
 the University of Delhi - a premier institution, with highly qualified academicians
@@ -131,15 +127,14 @@ facility and the only Electronic Shooting Range in the University."
             android:layout_marginRight="40sp"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             />
-    </ScrollView>
 
 
-        <TextView
+    <TextView
         android:id="@+id/aboutDevelopers"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/scroll_aboutus"
-        android:layout_marginTop="500dp"
+        android:layout_below="@id/aboutus_content"
+        android:layout_marginTop="20sp"
         android:layout_marginLeft="35sp"
         android:layout_marginRight="35sp"
         android:background="#B04400"
@@ -150,32 +145,26 @@ facility and the only Electronic Shooting Range in the University."
         android:paddingBottom="5sp"
         android:paddingTop="5sp"/>
 
-        <ScrollView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_below="@+id/aboutDevelopers"
-        android:layout_marginTop="10sp">
-
         <TextView
             android:id="@+id/aboutDevelopers_content"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@id/aboutDevelopers"
             android:paddingTop="5sp"
-            android:text="This application is developed by students of Department of
-            Computer Science, Hansraj College under the guidance of Mr. Suyash Kumar.
+            android:text="This application is developed by students of Department of Computer Science, Hansraj College under the guidance of Mr. Suyash Kumar.\n
 
-            DEVELOPERS
-            1. Aakriti Sharma
-            2. Aryan Rautela
-            3. Benika Yadav
-            4. Bhavyaa Garg
-            5. Harshit Jaiswal
-            6. Ishika Bhardwaj
-            7. Khushboo Gupta
-            8. Nancy Tayal
-            9. Priyanka Das
-            10. Monika Joshi
+            \nDEVELOPERS\n\n
+            1. Aakriti Sharma\n
+            2. Aryan Rautela\n
+            3. Benika Yadav\n
+            4. Harshit Jaiswal\n
+            5. Ishika Bhardwaj\n
+            6. Khushboo Gupta\n
+            7. Monika Joshi\n
+            8. Nancy Tayal\n
+            9. Priyanka Das\n
+
+            \nHOSTED BY: Omkar Thouta
             "
             android:textColor="@color/black"
             android:textSize="15sp"
@@ -183,6 +172,8 @@ facility and the only Electronic Shooting Range in the University."
             android:layout_marginRight="40sp"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             />
-        </ScrollView>
+    </LinearLayout>
+
+    </ScrollView>
 
 </RelativeLayout>
