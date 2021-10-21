@@ -1,6 +1,8 @@
 package com.example.hansrajcollege;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +15,16 @@ import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
+import com.example.hansrajcollege.models.ApiClient;
+import com.example.hansrajcollege.models.subject;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 
 public class ViewMarks extends Fragment implements CustomSpinner.OnSpinnerEventsListener {
     CustomSpinner s5,s6;
@@ -22,12 +34,17 @@ public class ViewMarks extends Fragment implements CustomSpinner.OnSpinnerEvents
     int selected_type;
     String subject[]={"Select Subject", "MicroProcessor", "Theory of Computation", "Internet Technology", "Data Analysis and Visualization"};
     String Number[]={"Select Number"};
-    String Anumber[]={"Select Number", "Assignment 1","Assignment 2","Assignment 3", "Assignment 4", "Assignment 5"};
-    String Inumber[]={"Select Number", "Internal Assessment 1","Internal Assessment 2", "Internal Assessment 3"};
-
+    String Anumber[]={"Select Number","a1","a2","a3","a4","a5"};
+    String Inumber[]={"Select Number","i1","i2","i3"};
+    //String Anumber[]={"Select Number", "Assignment 1","Assignment 2","Assignment 3", "Assignment 4", "Assignment 5"};
+    //String Inumber[]={"Select Number", "Internal Assessment 1","Internal Assessment 2", "Internal Assessment 3"};
+    ArrayList<String> sub=new ArrayList<>();
+    ArrayList<Integer> sub_id=new ArrayList<>();
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        //populating spinner with the response we get from server corresponding to T-id
+        populate_spinner();
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_view_marks, container, false);
         s5 = (CustomSpinner) root.findViewById(R.id.subject);
@@ -97,9 +114,18 @@ public class ViewMarks extends Fragment implements CustomSpinner.OnSpinnerEvents
                 }
 
                 if(!(s5.getSelectedItem().toString()=="Select Subject" || s6.getSelectedItem().toString()=="Select Number")) {
+
+                    int search_subid = search(s5.getSelectedItem().toString());
+                    //SharedPreferences pref=getContext().getSharedPreferences("MyPref",0);
+                    //SharedPreferences.Editor editor=pref.edit();
+                    //editor.putInt("selected_sub",search_subid);
+                    //editor.commit();
+
                     Bundle bundle = new Bundle();
                     bundle.putString("Subject_Selected", s5.getSelectedItem().toString());
                     bundle.putString("Type_Selected", s6.getSelectedItem().toString());
+                    bundle.putInt("selected_subject_id",search_subid);
+
                     TeacherMarksDisplay fragment = new TeacherMarksDisplay();
                     fragment.setArguments(bundle);
                     getFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
@@ -119,6 +145,47 @@ public class ViewMarks extends Fragment implements CustomSpinner.OnSpinnerEvents
             }
         });
         return root;
+    }
+
+    int search(String itemAtPosition){
+        int i=0;
+        for(i=0;i<sub.size();i++){
+            if(sub.get(i)== itemAtPosition){
+                break;
+            }
+        }
+        return sub_id.get(i);
+    }
+
+
+    private void populate_spinner(){
+        SharedPreferences pref=getContext().getSharedPreferences("MyPref",0);
+
+        Call<List<com.example.hansrajcollege.models.subject>> populate= ApiClient.getUserService(pref.getString("access",null)).subject_list();
+        populate.enqueue(new Callback<List<subject>>() {
+            @Override
+            public void onResponse(Call<List<subject>> call, Response<List<subject>> response) {
+                sub.add(0,"Select Subject");
+                sub_id.add(0,0);
+                for(int i=0;i<response.body().size();i++){
+                    sub.add(response.body().get(i).getSubject_name());
+                    sub_id.add(response.body().get(i).getSubject_id());
+                }
+                ArrayAdapter aa = new ArrayAdapter(getActivity(), android.R.layout.simple_spinner_item, sub);
+                aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                s5.setAdapter(aa);
+
+                Log.d("SAB",sub.toString());
+
+
+            }
+
+            @Override
+            public void onFailure(Call<List<subject>> call, Throwable t) {
+                Log.d("ERROR",t.getLocalizedMessage());
+
+            }
+        });
     }
     @Override
     public void onPopupWindowOpened(Spinner spinner) {
