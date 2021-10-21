@@ -2,7 +2,11 @@ package com.example.hansrajcollege;
 
 import com.example.hansrajcollege.models.FacultyLoginResponse;
 import com.example.hansrajcollege.models.LoginRequest;
+import com.example.hansrajcollege.models.StudentAttendanceRequest;
+import com.example.hansrajcollege.models.StudentAttendanceResponse;
 import com.example.hansrajcollege.models.StudentLoginResponse;
+import com.example.hansrajcollege.models.StudentMarksRequest;
+import com.example.hansrajcollege.models.StudentMarksResponse;
 import com.example.hansrajcollege.models.SubjectList;
 import com.example.hansrajcollege.models.student_details;
 import com.example.hansrajcollege.models.studentlist_request;
@@ -29,5 +33,13 @@ public interface UserService {
 
     @POST("faculty/students-details/")
     Call<List<student_details>> student_list(@Body studentlist_request studentlist_request);
+
+    //to fetch the marks of the student enrolled in a subject for teacher's dashboard
+    @POST("marks/students-marks/")
+    Call<List<StudentMarksResponse>> student_marks(@Body StudentMarksRequest studentMarksRequest);
+
+    //to fetch the attendance of the student enrolled in a subject for teacher's dashboard
+    @POST("attendance/students-attendance")
+    Call<List<StudentAttendanceResponse>> student_attendance(@Body StudentAttendanceRequest studentAttendanceRequest);
 
 }

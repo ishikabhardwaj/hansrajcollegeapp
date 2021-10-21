@@ -33,13 +33,14 @@ public class ListOfStudentsFragment extends Fragment {
         SharedPreferences pref=getContext().getSharedPreferences("MyPref",0);
         View root=inflater.inflate(R.layout.fragment_list_of_students, container, false);
         final ArrayList<StudentAttendanceClass> words= new ArrayList<StudentAttendanceClass>();
+
         studentlist_request studentlist_request=new studentlist_request();
         studentlist_request.setSubject_id(pref.getInt("selected_sub",6));
+
         RecyclerView list=(RecyclerView) root.findViewById(R.id.list);
         list.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         Call<List<student_details>> populate= ApiClient.getUserService(pref.getString("access",null)).student_list(studentlist_request);
-
         populate.enqueue(new Callback<List<student_details>>() {
             @Override
             public void onResponse(Call<List<student_details>> call, Response<List<student_details>> response) {

@@ -1,5 +1,7 @@
 package com.example.hansrajcollege.models;
 
+import android.util.Log;
+
 import com.example.hansrajcollege.UserService;
 
 import org.jetbrains.annotations.NotNull;
@@ -42,6 +44,7 @@ public class ApiClient {
                 .baseUrl("http://34.82.126.49/")
                 .client(okHttpClient)
                 .build();
+        Log.d("TOKEN",token);
         return retrofit;
     }
 

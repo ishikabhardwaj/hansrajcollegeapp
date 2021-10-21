@@ -6,10 +6,9 @@ public class MarksClass {
     private String mCourse;
     private int mMarks;
     private String testnumber;
-    public MarksClass(int rollno,String name,String Course,int marks,String num){
+    public MarksClass(int rollno,String name,int marks,String num){
         mRollno=rollno;
         mName=name;
-        mCourse=Course;
         mMarks=marks;
         testnumber=num;
     }
