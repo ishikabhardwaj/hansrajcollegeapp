@@ -43,9 +43,9 @@ public class ListOfStudentsFragment extends Fragment {
         populate.enqueue(new Callback<List<student_details>>() {
             @Override
             public void onResponse(Call<List<student_details>> call, Response<List<student_details>> response) {
-                Log.d("list",response.body().get(1).toString());
+                Log.d("list",response.body().get(1).getCourse());
 
-                for (int i=1;i<response.body().size();i++){
+                for (int i=0;i<response.body().size();i++){
                     words.add(new StudentAttendanceClass(
                             response.body().get(i).getName(),
                             response.body().get(i).getCourse(),
