@@ -128,7 +128,7 @@
                 </androidx.cardview.widget.CardView>
 
                 <EditText
-                    android:id="@+id/editTextNumber"
+                    android:id="@+id/nooflecture"
                     android:layout_width="60dp"
                     android:layout_height="30dp"
                     android:layout_gravity="center_vertical"

@@ -116,7 +116,7 @@ public class AddMarksFragment extends Fragment implements CustomSpinner.OnSpinne
                     Bundle bundle = new Bundle();
                     bundle.putString("Subject_Selected", s5.getSelectedItem().toString());
                     bundle.putString("Type_Selected", s6.getSelectedItem().toString());
-                    TeacherMarksDisplay fragment = new TeacherMarksDisplay();
+                    TeacherMarksUpload fragment = new TeacherMarksUpload();
                     fragment.setArguments(bundle);
                     getFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
                 }

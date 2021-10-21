@@ -81,7 +81,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
                 android:backgroundTint="#b04400"
-                android:text="View Marks" />
+                android:text="Proceed" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 </LinearLayout>
