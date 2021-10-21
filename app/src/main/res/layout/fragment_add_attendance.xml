@@ -135,7 +135,8 @@
                     android:layout_marginLeft="23dp"
                     android:background="@drawable/bg_edittext"
                     android:ems="3"
-                    android:inputType="number" />
+                    android:inputType="number"
+                    android:padding="5dp" />
             </LinearLayout>
 
             <Button
@@ -145,7 +146,7 @@
                 android:layout_gravity="center"
                 android:layout_margin="10dp"
                 android:backgroundTint="@color/brownbg"
-                android:text="Upload File" />
+                android:text="Proceed" />
 
         </LinearLayout>
 

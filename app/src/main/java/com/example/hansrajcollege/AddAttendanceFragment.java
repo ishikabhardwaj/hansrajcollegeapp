@@ -53,7 +53,12 @@ public class AddAttendanceFragment extends Fragment implements CustomSpinner.OnS
         b = (Button) root.findViewById(R.id.buttonforsubject);
         b.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v){TeacherAttendance fragment = new TeacherAttendance();
+            public void onClick(View v){
+                Bundle bundle = new Bundle();
+                bundle.putString("Subject_Selected", s1.getSelectedItem().toString());
+                bundle.putString("Month_Selected", s2.getSelectedItem().toString());
+                TeacherAttendance fragment = new TeacherAttendance();
+                fragment.setArguments(bundle);
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.fragment_container, fragment);
