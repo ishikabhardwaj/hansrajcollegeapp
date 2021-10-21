@@ -47,6 +47,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
                 if (intent.resolveActivity(v.getContext().getPackageManager()) != null) {
                     v.getContext().startActivity(intent);}
+                holder.textview4.setTextColor(R.color.yellow);
             }
         });
     }
