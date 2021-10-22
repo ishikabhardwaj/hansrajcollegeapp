@@ -9,12 +9,14 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
 import com.google.android.material.navigation.NavigationView;
 
 public class StudentDashboard extends AppCompatActivity {
     ActionBarDrawerToggle toggle;
     DrawerLayout drawer;
+    TextView userID,username;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +40,12 @@ public class StudentDashboard extends AppCompatActivity {
         toggle.syncState();
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new HomeFragment()).commit();
         NavigationView nav = (NavigationView) findViewById(R.id.nav_view);
+        View header1 = nav.getHeaderView(0);
+        View header2 = nav.getHeaderView(1);
+        TextView username = (TextView) header1.findViewById(R.id.username);
+        username.setText("Name");
+        TextView userId = (TextView) header1.findViewById(R.id.useremailID);
+        userId.setText("Ye Hai Id");
         nav.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {

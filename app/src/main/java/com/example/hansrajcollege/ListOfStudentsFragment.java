@@ -57,6 +57,7 @@ public class ListOfStudentsFragment extends Fragment {
                             response.body().get(i).getEmail()
                     ));
                     list.setAdapter(new RecyclerAdapter(words));
+
                 }
 
 
