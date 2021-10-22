@@ -77,8 +77,8 @@ public class TeacherAttendanceDisplay extends Fragment {
                     Drawable horizontalDivider = ContextCompat.getDrawable(getActivity(), R.drawable.vertical_divider);
                     horizontalDecoration.setDrawable(horizontalDivider);
                     list.addItemDecoration(horizontalDecoration);
-
                 }
+
                 else{
                     Toast.makeText(getActivity(),"khraab request",Toast.LENGTH_LONG).show();
                 }
