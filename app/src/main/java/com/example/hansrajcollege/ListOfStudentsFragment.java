@@ -1,6 +1,7 @@
 package com.example.hansrajcollege;
 
 import android.content.SharedPreferences;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -8,8 +9,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.Toast;
 
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -44,9 +48,9 @@ public class ListOfStudentsFragment extends Fragment {
         populate.enqueue(new Callback<List<student_details>>() {
             @Override
             public void onResponse(Call<List<student_details>> call, Response<List<student_details>> response) {
-                Log.d("list",response.body().get(1).getCourse());
+                Log.d("list", response.body().get(1).toString());
 
-                for (int i=0;i<response.body().size();i++){
+                for (int i = 0; i < response.body().size(); i++) {
                     words.add(new StudentAttendanceClass(
                             response.body().get(i).getName(),
                             response.body().get(i).getCourse(),
@@ -54,12 +58,27 @@ public class ListOfStudentsFragment extends Fragment {
                             response.body().get(i).getEmail()
                     ));
                     list.setAdapter(new RecyclerAdapter(words));
+
+                    if (response.isSuccessful()) {
+
+                        if (response.body().size() == 0) {
+                            Toast.makeText(getActivity(), "data is not available", Toast.LENGTH_LONG).show();
+                        }
+
+                        for (int j = 0; j < response.body().size(); j++) {
+                            words.add(new StudentAttendanceClass(
+                                    response.body().get(j).getName(),
+                                    response.body().get(j).getCourse(),
+                                    Integer.parseInt(response.body().get(j).getSid()),
+                                    response.body().get(j).getEmail()
+                            ));
+                            list.setAdapter(new RecyclerAdapter(words));
+                        }
+                    } else {
+                        Toast.makeText(getActivity(), "Data is not available", Toast.LENGTH_LONG).show();
+                    }
                 }
-
-
-
             }
-
             @Override
             public void onFailure(Call<List<student_details>> call, Throwable t) {
                 Log.d("ERROR",t.getLocalizedMessage());

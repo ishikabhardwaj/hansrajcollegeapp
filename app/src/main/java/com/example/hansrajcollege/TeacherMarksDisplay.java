@@ -36,7 +36,7 @@ public class TeacherMarksDisplay extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View root=inflater.inflate(R.layout.teacher_marks_display, container, false);
-        h1 = root.findViewById(R.id.textView_mark);
+        h1 = root.findViewById(R.id.header);
 
         Bundle bundle= this.getArguments();
         subject= bundle.getString("Subject_Selected");
@@ -68,16 +68,13 @@ public class TeacherMarksDisplay extends Fragment {
                                 response.body().get(i).getMarks(),
                                 type));
                     }
+                    MarksClass.mMarks=response.body().get(0).getTotal_marks();
                     list.setAdapter(new RecyclerAdapterForMarksView(words));
-                    DividerItemDecoration horizontalDecoration = new DividerItemDecoration(list.getContext(),
-                            DividerItemDecoration.VERTICAL);
-                    Drawable horizontalDivider = ContextCompat.getDrawable(getActivity(), R.drawable.vertical_divider);
-                    horizontalDecoration.setDrawable(horizontalDivider);
-                    list.addItemDecoration(horizontalDecoration);
+
 
                 }
                 else {
-                    Toast.makeText(getActivity(),"khraab request",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getActivity(),"Data is not available",Toast.LENGTH_LONG).show();
                 }
 
 

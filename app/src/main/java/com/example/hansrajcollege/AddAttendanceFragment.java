@@ -8,7 +8,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -32,7 +34,8 @@ public class AddAttendanceFragment extends Fragment implements CustomSpinner.OnS
     String Subject[]={"Select Subject", "Programming in Java","Android Development","Software Engineering","Microprocessor"};
     String Months[]={"Month","January","February","March","April","May","June","July","August","Septemer","October","November","December"};
     ArrayList<String> sub=new ArrayList<>();
-
+    ArrayList<Integer> sub_id=new ArrayList<>();
+   EditText e1;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -44,7 +47,7 @@ public class AddAttendanceFragment extends Fragment implements CustomSpinner.OnS
         s1 = (CustomSpinner) root.findViewById(R.id.spinnercourse);
         s1.setSpinnerEventsListener(this);
 
-
+      e1= (EditText) root.findViewById(R.id.nooflecture);
         s2 = (CustomSpinner) root.findViewById(R.id.spinner5);
         s2.setSpinnerEventsListener(this);
         ArrayAdapter ab = new ArrayAdapter(this.getActivity(), android.R.layout.simple_spinner_item, Months);
@@ -53,15 +56,50 @@ public class AddAttendanceFragment extends Fragment implements CustomSpinner.OnS
         b = (Button) root.findViewById(R.id.buttonforsubject);
         b.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v){TeacherAttendance fragment = new TeacherAttendance();
-                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.fragment_container, fragment);
-                fragmentTransaction.addToBackStack(null);
-                fragmentTransaction.commit();
+            public void onClick(View v){
+
+
+                if(e1.getText().toString().isEmpty() && s2.getSelectedItem().toString()=="Month"){
+                    Toast.makeText(getActivity(),"Select Month and Enter Number of lectures",Toast.LENGTH_LONG).show();
+                }
+                else if(s1.getSelectedItem().toString() == "Select Subject") {
+                        Toast.makeText(getActivity(), "Select Subject", Toast.LENGTH_LONG).show();
+                    }
+                 else if (s2.getSelectedItem().toString() == "Month") {
+                        Toast.makeText(getActivity(), "Select Month", Toast.LENGTH_LONG).show();
+                    }
+                 else if(e1.getText().toString().isEmpty()){
+                        Toast.makeText(getActivity(), "Enter Number of lectures", Toast.LENGTH_LONG).show();
+                    }
+                else{
+                    Bundle bundle = new Bundle();
+                    bundle.putString("Subject_Selected", s1.getSelectedItem().toString());
+                    bundle.putString("Month_Selected", s2.getSelectedItem().toString());
+                    bundle.putInt("subject_id",search(s1.getSelectedItem().toString()));
+                    Log.d("subj id",s1.getSelectedItem().toString()+search(s1.getSelectedItem().toString()));
+                    TeacherAttendance fragment = new TeacherAttendance();
+                    fragment.setArguments(bundle);
+                    FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                    fragmentTransaction.replace(R.id.fragment_container, fragment);
+                    fragmentTransaction.addToBackStack(null);
+                    fragmentTransaction.commit();
+                }
             }
         });
         return root;
+    }
+
+
+    //to search Subject Id to the corresponding Subject
+    int search(String itemAtPosition){
+        int i=0;
+        for(i=0;i<sub.size();i++){
+            if(sub.get(i)== itemAtPosition){
+                break;
+            }
+        }
+        return sub_id.get(i);
     }
 
     private void populate_spinner(){
@@ -71,8 +109,11 @@ public class AddAttendanceFragment extends Fragment implements CustomSpinner.OnS
         populate.enqueue(new Callback<List<subject>>() {
             @Override
             public void onResponse(Call<List<subject>> call, Response<List<subject>> response) {
+                sub.add(0,"Select Subject");
+                sub_id.add(0,0);
                 for(int i=0;i<response.body().size();i++){
                     sub.add(response.body().get(i).getSubject_name());
+                    sub_id.add(response.body().get(i).getSubject_id());
                 }
                 ArrayAdapter aa = new ArrayAdapter(getActivity(), android.R.layout.simple_spinner_item, sub);
                 aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);

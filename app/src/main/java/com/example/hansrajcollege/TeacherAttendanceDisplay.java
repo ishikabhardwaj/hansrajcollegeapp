@@ -36,7 +36,7 @@ public class TeacherAttendanceDisplay extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View root=inflater.inflate(R.layout.teacher_attendance_display, container, false);
-        h1 = root.findViewById(R.id.textView_mark);
+        h1 = root.findViewById(R.id.header);
 
         Bundle bundle= this.getArguments();
         subject= bundle.getString("Subject_Selected");
@@ -64,23 +64,17 @@ public class TeacherAttendanceDisplay extends Fragment {
             public void onResponse(Call<List<StudentAttendanceResponse>> call, Response<List<StudentAttendanceResponse>> response) {
                 if(response.isSuccessful()){
                     Log.d("list",response.body().get(1).toString());
-                    AttendanceClass.mGiven=response.body().get(1).getTotal_attendance();
                     for (int i=1;i<response.body().size();i++){
                         words.add(new AttendanceClass(response.body().get(i).getRollNo(),
                                 response.body().get(i).getName(),
-                                response.body().get(i).getClass().toString(),
                                 response.body().get(i).getAttendance()));
                     }
+                    AttendanceClass.mGiven=response.body().get(0).getTotal_attendance();
                     list.setAdapter(new RecyclerAdapterForAttendanceView(words));
-                    DividerItemDecoration horizontalDecoration = new DividerItemDecoration(list.getContext(),
-                            DividerItemDecoration.VERTICAL);
-                    Drawable horizontalDivider = ContextCompat.getDrawable(getActivity(), R.drawable.vertical_divider);
-                    horizontalDecoration.setDrawable(horizontalDivider);
-                    list.addItemDecoration(horizontalDecoration);
-                }
 
+                }
                 else{
-                    Toast.makeText(getActivity(),"khraab request",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getActivity(),"Data is not available",Toast.LENGTH_LONG).show();
                 }
 
             }

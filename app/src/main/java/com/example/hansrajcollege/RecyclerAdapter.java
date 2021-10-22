@@ -1,9 +1,13 @@
 package com.example.hansrajcollege;
 
+import android.annotation.SuppressLint;
+import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.content.Intent;
+import android.net.Uri;
 
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -33,6 +37,19 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         String r=Integer.toString(roll);
         holder.textview3.setText(r);
         holder.textview4.setText(myListData.getmEmail());
+        holder.textview4.setMovementMethod(LinkMovementMethod.getInstance());
+        holder.textview4.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("ResourceAsColor")
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
+                        "mailto",myListData.getmEmail(), null));// only email apps should handle this
+
+                if (intent.resolveActivity(v.getContext().getPackageManager()) != null) {
+                    v.getContext().startActivity(intent);}
+                holder.textview4.setTextColor(R.color.yellow);
+            }
+        });
     }
 
 

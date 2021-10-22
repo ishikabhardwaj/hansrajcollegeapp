@@ -1,16 +1,16 @@
 package com.example.hansrajcollege;
 
-public class MarksClass {
+public class TeacherUploadMarksClass {
     private int mRollno;
     private String mName;
     private String mCourse;
-    static int mMarks;
+    private int mMarks;
     private String testnumber;
-    public MarksClass(int rollno,String name,int marks,String num){
+    public TeacherUploadMarksClass(int rollno, String name,String course, String num){
         mRollno=rollno;
         mName=name;
-        mMarks=marks;
         testnumber=num;
+        mCourse=course;
     }
     public int getmRollno() {
         return mRollno;

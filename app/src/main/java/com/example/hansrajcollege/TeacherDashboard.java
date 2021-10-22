@@ -5,14 +5,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import java.util.zip.Inflater;
+
 public class TeacherDashboard extends Fragment {
     CardView c1,c2,c3,c4,c5;
+    TextView userID,username;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -22,6 +26,7 @@ public class TeacherDashboard extends Fragment {
         c3= (CardView) root.findViewById(R.id.cardView3);
         c4= (CardView) root.findViewById(R.id.cardView4);
         c5= (CardView) root.findViewById(R.id.cardView5);
+
         c1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

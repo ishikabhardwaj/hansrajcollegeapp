@@ -39,7 +39,7 @@ public interface UserService {
     Call<List<StudentMarksResponse>> student_marks(@Body StudentMarksRequest studentMarksRequest);
 
     //to fetch the attendance of the student enrolled in a subject for teacher's dashboard
-    @POST("attendance/students-attendance")
+    @POST("attendance/students-attendance/")
     Call<List<StudentAttendanceResponse>> student_attendance(@Body StudentAttendanceRequest studentAttendanceRequest);
 
 }

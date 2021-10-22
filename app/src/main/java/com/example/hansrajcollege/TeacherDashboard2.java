@@ -3,8 +3,10 @@ package com.example.hansrajcollege;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -15,9 +17,12 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
 
+import java.util.zip.Inflater;
+
 public class TeacherDashboard2 extends AppCompatActivity {
     ActionBarDrawerToggle toggle;
     DrawerLayout drawer;
+    TextView userID,username;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,7 +31,6 @@ public class TeacherDashboard2 extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPref", 0);
-
 
         //getSupportActionBar().setIcon(R.drawable.ic_baseline_account_circle_24);
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -45,6 +49,12 @@ public class TeacherDashboard2 extends AppCompatActivity {
         toggle.syncState();
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new TeacherDashboard()).commit();
         NavigationView nav = (NavigationView) findViewById(R.id.nav_view);
+        View header1 = nav.getHeaderView(0);
+        View header2 = nav.getHeaderView(1);
+        TextView text = (TextView) header1.findViewById(R.id.username);
+        text.setText("Hum Hai Faculty");
+        TextView userId = (TextView) header1.findViewById(R.id.useremailID);
+        userId.setText("Ye Hai Id");
         nav.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {

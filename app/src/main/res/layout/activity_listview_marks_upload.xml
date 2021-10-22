@@ -127,9 +127,10 @@
         android:background="@color/brownbg" />
 
     <LinearLayout
+        android:id="@+id/sidelinear"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/sidelinear"
+        android:layout_marginLeft="10dp"
         android:layout_toRightOf="@+id/middle"
         android:orientation="vertical">
 
@@ -146,7 +147,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:text="Lectures Attended"
+                android:text="Marks Obtained"
                 android:textColor="@color/black"
                 android:textSize="12sp"
                 android:textStyle="bold" />
@@ -164,4 +165,17 @@
         android:ems="10"
         android:inputType="number"
         android:padding="5dp" />
+
+    <TextView
+        android:id="@+id/MaxMarks"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/sidelinear"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="2dp"
+        android:layout_toRightOf="@id/lectureedittext"
+        android:textColor="@color/black"
+        android:textStyle="bold" />
 </RelativeLayout>

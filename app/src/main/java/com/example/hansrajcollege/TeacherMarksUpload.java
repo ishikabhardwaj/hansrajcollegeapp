@@ -28,28 +28,28 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 
-public class TeacherAttendance extends Fragment {
+public class TeacherMarksUpload extends Fragment {
     String subject, type,text;
     int Subject_id;
     TextView h1;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View root=inflater.inflate(R.layout.fragment_upload_attendance, container, false);
+        View root=inflater.inflate(R.layout.teacher_upload_marks, container, false);
         h1 = root.findViewById(R.id.header);
-        final ArrayList<TeacherUploadAttendance> words= new ArrayList<TeacherUploadAttendance>();
+        final ArrayList<TeacherUploadMarksClass> UploadMarks= new ArrayList<TeacherUploadMarksClass>();
+
         Bundle bundle= this.getArguments();
         subject= bundle.getString("Subject_Selected");
-        type= bundle.getString("Month_Selected");
-        Subject_id=bundle.getInt("subject_id");
-        Log.d("subj_id",String.valueOf(Subject_id));
-        h1.setText(subject +" Attendance for Month " + type);
+        type= bundle.getString("Type_Selected");
+        Subject_id=bundle.getInt("Selected_Subject_Id");
+        h1.setText(subject +" Marks for " + type);
+
 
         RecyclerView list=(RecyclerView) root.findViewById(R.id.list);
         list.setLayoutManager(new LinearLayoutManager(getActivity()));
-        list.setAdapter(new RecyclerAdapterForUploadAtt(words));
+        list.setAdapter(new RecyclerAdapterForUploadMarks(UploadMarks));
 
-        Toast.makeText(getActivity(),String.valueOf(Subject_id),Toast.LENGTH_LONG).show();
         SharedPreferences pref=getContext().getSharedPreferences("MyPref",0);
         //sending request
         studentlist_request studentlist_request=new studentlist_request();
@@ -66,13 +66,15 @@ public class TeacherAttendance extends Fragment {
                     }
 
                     for (int i=0;i<response.body().size();i++){
-                        words.add(new TeacherUploadAttendance(
+                        UploadMarks.add(new TeacherUploadMarksClass(
+                                Integer.parseInt(response.body().get(i).getSid()),
                                 response.body().get(i).getName(),
                                 response.body().get(i).getCourse(),
-                                Integer.parseInt(response.body().get(i).getSid())
-                                )
+                                type)
+
                         );
-                        list.setAdapter(new RecyclerAdapterForUploadAtt(words));
+                        list.setAdapter(new RecyclerAdapterForUploadMarks(UploadMarks));
+
                     }
                 }
                 else{
@@ -85,20 +87,19 @@ public class TeacherAttendance extends Fragment {
                 Log.d("ERROR",t.getLocalizedMessage());
             }
         });
-        /*words.add(new TeacherUploadAttendance("Vardha Jain","B.Sc(Hons.) Computer Science",8151));
-        words.add(new TeacherUploadAttendance("Harshit Jaiswal","B.Sc(Hons.) Computer Science",8152));
-        words.add(new TeacherUploadAttendance("Monika Joshi","B.Sc(Hons.) Computer Science",8153));
-        words.add(new TeacherUploadAttendance("Hemant Giri Goshwami","B.Sc(Hons.) Computer Science",8154));
-        words.add(new TeacherUploadAttendance("Priyanka Das","B.Sc(Hons.) Computer Science",8155));
-        words.add(new TeacherUploadAttendance("Mamidi Chandu","B.Sc(Hons.) Computer Science",8157));
-        words.add(new TeacherUploadAttendance("Benika Yadav","B.Sc(Hons.) Computer Science",8158));
-        words.add(new TeacherUploadAttendance("Benika Yadav","B.Sc(Hons.) Computer Science",8158));
-        words.add(new TeacherUploadAttendance("Benika Yadav","B.Sc(Hons.) Computer Science",8158));
-        words.add(new TeacherUploadAttendance("Benika Yadav","B.Sc(Hons.) Computer Science",8158));
-        words.add(new TeacherUploadAttendance("Benika Yadav","B.Sc(Hons.) Computer Science",8158));
-        words.add(new TeacherUploadAttendance("Benika Yadav","B.Sc(Hons.) Computer Science",8158));
-        words.add(new TeacherUploadAttendance("Benika Yadav","B.Sc(Hons.) Computer Science",8158));
-        words.add(new TeacherUploadAttendance("Benika Yadav","B.Sc(Hons.) Computer Science",8158));*/
+
+
+
+
+
+
+        /*words.add(new TeacherUploadMarksClass(8151 ,"Vardha Jain","B.Sc(Hons.) Computer Science",type));
+        words.add(new TeacherUploadMarksClass(8152,"Harshit Jaiswal","B.Sc(Hons.) Computer Science",type));
+        words.add(new TeacherUploadMarksClass(8153,"Monika Joshi","B.Sc(Hons.) Computer Science",type));
+        words.add(new TeacherUploadMarksClass(8155,"Hemant Giri Goshwami","B.Sc(Hons.) Computer Science",type));
+        words.add(new TeacherUploadMarksClass(8157,"Priyanka Das","B.Sc(Hons.) Computer Science",type));
+        words.add(new TeacherUploadMarksClass(8158,"Mamidi Chandu","B.Sc(Hons.) Computer Science",type));
+        words.add(new TeacherUploadMarksClass(8159,"Benika Yadav","B.Sc(Hons.) Computer Science",type));*/
 
         return root;
     }
