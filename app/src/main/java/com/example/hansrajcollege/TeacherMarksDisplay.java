@@ -68,6 +68,7 @@ public class TeacherMarksDisplay extends Fragment {
                                 response.body().get(i).getMarks(),
                                 type));
                     }
+                    MarksClass.mMarks=response.body().get(0).getTotal_marks();
                     list.setAdapter(new RecyclerAdapterForMarksView(words));
                     DividerItemDecoration horizontalDecoration = new DividerItemDecoration(list.getContext(),
                             DividerItemDecoration.VERTICAL);

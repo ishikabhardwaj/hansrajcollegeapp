@@ -4,7 +4,7 @@ public class MarksClass {
     private int mRollno;
     private String mName;
     private String mCourse;
-    private int mMarks;
+    static int mMarks;
     private String testnumber;
     public MarksClass(int rollno,String name,int marks,String num){
         mRollno=rollno;

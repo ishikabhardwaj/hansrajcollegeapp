@@ -34,6 +34,7 @@ public class AddMarksFragment extends Fragment implements CustomSpinner.OnSpinne
     RadioGroup type;
     RadioButton assignment,internal;
     ArrayList<String> subj= new ArrayList<>();
+    ArrayList<Integer> subj_id=new ArrayList<>();
     int selected_type;
     String subject[]={"Select Subject", "MicroProcessor", "Theory of Computation", "Internet Technology", "Data Analysis and Visualization"};
     String Number[]={"Select Number"};
@@ -116,6 +117,7 @@ public class AddMarksFragment extends Fragment implements CustomSpinner.OnSpinne
                     Bundle bundle = new Bundle();
                     bundle.putString("Subject_Selected", s5.getSelectedItem().toString());
                     bundle.putString("Type_Selected", s6.getSelectedItem().toString());
+                    bundle.putInt("Selected_Subject_Id",search(s5.getSelectedItem().toString()));
                     TeacherMarksUpload fragment = new TeacherMarksUpload();
                     fragment.setArguments(bundle);
                     getFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
@@ -137,6 +139,17 @@ public class AddMarksFragment extends Fragment implements CustomSpinner.OnSpinne
         return root;
     }
 
+    //to search Subject Id to the corresponding Subject
+    int search(String itemAtPosition){
+        int i=0;
+        for(i=0;i<subj.size();i++){
+            if(subj.get(i)== itemAtPosition){
+                break;
+            }
+        }
+        return subj_id.get(i);
+    }
+
     private void populate_spinner(){
         SharedPreferences pref=getContext().getSharedPreferences("MyPref",0);
 
@@ -146,6 +159,7 @@ public class AddMarksFragment extends Fragment implements CustomSpinner.OnSpinne
             public void onResponse(Call<List<subject>> call, Response<List<subject>> response) {
                 for(int i=0;i<response.body().size();i++){
                     subj.add(response.body().get(i).getSubject_name());
+                    subj_id.add(response.body().get(i).getSubject_id());
                 }
                 ArrayAdapter sub = new ArrayAdapter(getActivity(), android.R.layout.simple_spinner_item, subj);
                 sub.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);

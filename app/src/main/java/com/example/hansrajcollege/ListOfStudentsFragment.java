@@ -49,7 +49,10 @@ public class ListOfStudentsFragment extends Fragment {
             @Override
             public void onResponse(Call<List<student_details>> call, Response<List<student_details>> response) {
                 if(response.isSuccessful()){
-                    Log.d("list",response.body().get(1).toString());
+
+                    if(response.body().size()==0){
+                        Toast.makeText(getActivity(),"data is not available",Toast.LENGTH_LONG).show();
+                    }
 
                     for (int i=0;i<response.body().size();i++){
                         words.add(new StudentAttendanceClass(
@@ -64,10 +67,6 @@ public class ListOfStudentsFragment extends Fragment {
                 else{
                     Toast.makeText(getActivity(),"Data is not available",Toast.LENGTH_LONG).show();
                 }
-
-
-
-
             }
 
             @Override
