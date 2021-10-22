@@ -80,7 +80,7 @@ public class TeacherAttendanceDisplay extends Fragment {
 
                 }
                 else{
-                    Toast.makeText(getActivity(),"khraab request",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getActivity(),"Data is not available",Toast.LENGTH_LONG).show();
                 }
 
             }

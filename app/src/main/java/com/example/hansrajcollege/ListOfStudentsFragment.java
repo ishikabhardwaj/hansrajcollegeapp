@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -44,17 +45,23 @@ public class ListOfStudentsFragment extends Fragment {
         populate.enqueue(new Callback<List<student_details>>() {
             @Override
             public void onResponse(Call<List<student_details>> call, Response<List<student_details>> response) {
-                Log.d("list",response.body().get(1).toString());
+                if(response.isSuccessful()){
+                    Log.d("list",response.body().get(1).toString());
 
-                for (int i=0;i<response.body().size();i++){
-                    words.add(new StudentAttendanceClass(
-                            response.body().get(i).getName(),
-                            response.body().get(i).getCourse(),
-                            Integer.parseInt(response.body().get(i).getSid()),
-                            response.body().get(i).getEmail()
-                    ));
-                    list.setAdapter(new RecyclerAdapter(words));
+                    for (int i=0;i<response.body().size();i++){
+                        words.add(new StudentAttendanceClass(
+                                response.body().get(i).getName(),
+                                response.body().get(i).getCourse(),
+                                Integer.parseInt(response.body().get(i).getSid()),
+                                response.body().get(i).getEmail()
+                        ));
+                        list.setAdapter(new RecyclerAdapter(words));
+                    }
                 }
+                else{
+                    Toast.makeText(getActivity(),"Data is not available",Toast.LENGTH_LONG).show();
+                }
+
 
 
 
