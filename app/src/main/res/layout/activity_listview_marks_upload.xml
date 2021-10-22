@@ -6,7 +6,11 @@
     android:background="#E1CFC9"
     android:orientation="vertical"
     tools:layout_below="@id/textView5">
-
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/brownbg" />
     <LinearLayout
         android:id="@+id/toplinear"
         android:layout_width="200dp"

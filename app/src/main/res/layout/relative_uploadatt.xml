@@ -24,11 +24,6 @@
         android:text="List of Students"
         android:textColor="@color/black"
         android:textStyle="bold" />
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:layout_gravity="center_horizontal"
-        android:background="@color/brownbg" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list"
