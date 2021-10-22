@@ -70,11 +70,7 @@ public class TeacherMarksDisplay extends Fragment {
                     }
                     MarksClass.mMarks=response.body().get(0).getTotal_marks();
                     list.setAdapter(new RecyclerAdapterForMarksView(words));
-                    DividerItemDecoration horizontalDecoration = new DividerItemDecoration(list.getContext(),
-                            DividerItemDecoration.VERTICAL);
-                    Drawable horizontalDivider = ContextCompat.getDrawable(getActivity(), R.drawable.vertical_divider);
-                    horizontalDecoration.setDrawable(horizontalDivider);
-                    list.addItemDecoration(horizontalDecoration);
+
 
                 }
                 else {

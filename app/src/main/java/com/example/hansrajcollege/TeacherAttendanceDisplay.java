@@ -71,11 +71,6 @@ public class TeacherAttendanceDisplay extends Fragment {
                     }
                     AttendanceClass.mGiven=response.body().get(0).getTotal_attendance();
                     list.setAdapter(new RecyclerAdapterForAttendanceView(words));
-                    DividerItemDecoration horizontalDecoration = new DividerItemDecoration(list.getContext(),
-                            DividerItemDecoration.VERTICAL);
-                    Drawable horizontalDivider = ContextCompat.getDrawable(getActivity(), R.drawable.vertical_divider);
-                    horizontalDecoration.setDrawable(horizontalDivider);
-                    list.addItemDecoration(horizontalDecoration);
 
                 }
                 else{
