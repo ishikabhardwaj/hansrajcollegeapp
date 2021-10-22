@@ -1,58 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddMarksFragment">
+    android:orientation="vertical"
+    tools:context=".Marks_Fragment">
 
-    <LinearLayout
-        android:layout_width="340dp"
-        android:layout_height="300dp"
-        android:gravity="center"
+    <!-- TODO: Update blank fragment layout -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:background="@color/white"
-        android:orientation="vertical">
+        android:layout_marginTop="250dp"
+        android:backgroundTint="#E1CFC9"
+        app:cardCornerRadius="15dp">
 
+        <LinearLayout
+            android:layout_width="340dp"
+            android:layout_height="300dp"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:orientation="vertical">
 
-        <com.example.hansrajcollege.CustomSpinner
-            android:id="@+id/spinner5"
-            android:layout_width="270dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="50dp"
-            android:background="@drawable/bg_spinner"
-            android:visibility="visible"
-            android:spinnerMode="dropdown"
-            />
+            <com.example.hansrajcollege.CustomSpinner
+                android:id="@+id/subject"
+                android:layout_width="270dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/bg_spinner"
+                android:spinnerMode="dropdown"
+                android:visibility="visible" />
 
+            <RadioGroup
+                android:id="@+id/radio_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="25dp"
+                android:orientation="horizontal">
 
+                <RadioButton
+                    android:id="@+id/Assignment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/brownbg"
+                    android:checked="false"
+                    android:text="Assignment"
+                    android:textColor="#000000"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
 
-        <com.example.hansrajcollege.CustomSpinner
-            android:id="@+id/spinner6"
-            android:layout_width="270dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="25dp"
-            android:background="@drawable/bg_spinner"
-            android:spinnerMode="dropdown"/>
+                <RadioButton
+                    android:id="@+id/Internal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40dp"
+                    android:buttonTint="@color/brownbg"
+                    android:text="Internal"
+                    android:textColor="#000000"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+            </RadioGroup>
 
-        <com.example.hansrajcollege.CustomSpinner
-            android:id="@+id/spinner7"
-            android:layout_width="270dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="25dp"
-            android:background="@drawable/bg_spinner"
-            android:spinnerMode="dropdown"/>
+            <com.example.hansrajcollege.CustomSpinner
+                android:id="@+id/number"
+                android:layout_width="270dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="25dp"
+                android:background="@drawable/bg_spinner"
+                android:spinnerMode="dropdown" />
 
-        <Button
-            android:id="@+id/button4"
-            android:layout_width="200dp"
-            android:layout_height="60dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="50dp"
-            android:text="SUBMIT"
-            android:backgroundTint="#b04400" />
-    </LinearLayout>
-
-</FrameLayout>
+            <Button
+                android:id="@+id/button4"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="#b04400"
+                android:text="Proceed" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

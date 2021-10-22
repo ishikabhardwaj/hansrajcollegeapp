@@ -27,4 +27,5 @@
     <string name="friday">Fri</string>
     <string name="saturday">Sat</string>
     <string name="title_activity_teacher_profile">TeacherProfile</string>
+    <string name="email"><a href="#">Varda@gmail.com</a></string>
 </resources>

@@ -149,7 +149,7 @@
     </LinearLayout>
 
     <EditText
-        android:id="@+id/editTextNumber"
+        android:id="@+id/lectureedittext"
         android:layout_width="40dp"
         android:layout_height="25dp"
         android:layout_below="@+id/sidelinear"
