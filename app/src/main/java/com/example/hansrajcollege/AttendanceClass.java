@@ -6,10 +6,9 @@ public class AttendanceClass {
     private String mCourse;
     private int mAttended;
     static int mGiven;
-    public AttendanceClass(int rollno, String name, String Course, int attended){
+    public AttendanceClass(int rollno, String name, int attended){
         mRollno=rollno;
         mName=name;
-        mCourse=Course;
         mAttended=attended;
     }
     public int getmRollno() {

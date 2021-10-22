@@ -68,6 +68,7 @@ public class TeacherMarksDisplay extends Fragment {
                                 response.body().get(i).getMarks(),
                                 type));
                     }
+                    MarksClass.mMarks=response.body().get(0).getTotal_marks();
                     list.setAdapter(new RecyclerAdapterForMarksView(words));
                     DividerItemDecoration horizontalDecoration = new DividerItemDecoration(list.getContext(),
                             DividerItemDecoration.VERTICAL);
@@ -77,7 +78,7 @@ public class TeacherMarksDisplay extends Fragment {
 
                 }
                 else {
-                    Toast.makeText(getActivity(),"khraab request",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getActivity(),"Data is not available",Toast.LENGTH_LONG).show();
                 }
 
 
