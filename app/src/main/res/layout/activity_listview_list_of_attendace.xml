@@ -64,8 +64,9 @@
             android:layout_marginLeft="20dp"
             android:backgroundTint="#D5A291"
             app:cardCornerRadius="10dp">
+
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="170dp"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 

@@ -36,7 +36,7 @@ public class TeacherAttendanceDisplay extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View root=inflater.inflate(R.layout.teacher_attendance_display, container, false);
-        h1 = root.findViewById(R.id.textView_mark);
+        h1 = root.findViewById(R.id.header);
 
         Bundle bundle= this.getArguments();
         subject= bundle.getString("Subject_Selected");
