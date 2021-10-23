@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -23,6 +25,7 @@ public class StudentDashboard extends AppCompatActivity {
         setContentView(R.layout.activity_student_dashboard);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPref", 0);
         //getSupportActionBar().setIcon(R.drawable.ic_baseline_account_circle_24);
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
 
@@ -43,9 +46,9 @@ public class StudentDashboard extends AppCompatActivity {
         View header1 = nav.getHeaderView(0);
         View header2 = nav.getHeaderView(1);
         TextView username = (TextView) header1.findViewById(R.id.username);
-        username.setText("Name");
+        username.setText(pref.getString("name",null));
         TextView userId = (TextView) header1.findViewById(R.id.useremailID);
-        userId.setText("Ye Hai Id");
+        userId.setText(pref.getString("uid",null));
         nav.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
