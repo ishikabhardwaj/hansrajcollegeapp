@@ -25,6 +25,7 @@ public class StudentDashboard extends AppCompatActivity {
         setContentView(R.layout.activity_student_dashboard);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPref", 0);
         //getSupportActionBar().setIcon(R.drawable.ic_baseline_account_circle_24);
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         SharedPreferences pref=this.getSharedPreferences("MyPref",0);
