@@ -3,6 +3,7 @@ package com.example.hansrajcollege;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -46,14 +47,17 @@ public class RecyclerAdapterForUploadAtt extends RecyclerView.Adapter<RecyclerAd
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public TextView textView1,textview2,textview3;
+        public EditText editText;
         public ViewHolder(View itemView) {
             super(itemView);
             this.textView1 = (TextView) itemView.findViewById(R.id.textView2);
             this.textview2 = (TextView) itemView.findViewById(R.id.textView1);
             this.textview3 = (TextView) itemView.findViewById(R.id.textView3);
+            this.editText=(EditText) itemView.findViewById(R.id.lectureedittext);
 
         }
     }
+
 }
 
 

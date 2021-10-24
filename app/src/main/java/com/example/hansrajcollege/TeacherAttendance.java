@@ -32,6 +32,7 @@ public class TeacherAttendance extends Fragment {
     String subject, type,text;
     int Subject_id;
     TextView h1;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -73,6 +74,8 @@ public class TeacherAttendance extends Fragment {
                                 )
                         );
                         list.setAdapter(new RecyclerAdapterForUploadAtt(words));
+
+
                     }
                 }
                 else{
