@@ -12,6 +12,8 @@ import android.widget.Toast;
 
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -19,6 +21,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.hansrajcollege.models.ApiClient;
 import com.example.hansrajcollege.models.StudentMarksRequest;
 import com.example.hansrajcollege.models.StudentMarksResponse;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,13 +34,24 @@ public class TeacherMarksDisplay extends Fragment {
     TextView h1;
     String subject, type,text;
     int Subject_id;
-
+  FloatingActionButton update;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View root=inflater.inflate(R.layout.teacher_marks_display, container, false);
         h1 = root.findViewById(R.id.header);
-
+       update = (FloatingActionButton) root.findViewById(R.id.update);
+       update.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               Fragment fragment = new UpdateMarks();
+               FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+               FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+               fragmentTransaction.replace(R.id.fragment_container, fragment);
+               fragmentTransaction.addToBackStack(null);
+               fragmentTransaction.commit();
+           }
+       });
         Bundle bundle= this.getArguments();
         subject= bundle.getString("Subject_Selected");
         type= bundle.getString("Type_Selected");
