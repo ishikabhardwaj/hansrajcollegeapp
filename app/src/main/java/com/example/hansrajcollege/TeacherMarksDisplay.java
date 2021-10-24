@@ -66,7 +66,7 @@ public class TeacherMarksDisplay extends Fragment {
         StudentMarksRequest studentMarksRequest=new StudentMarksRequest();
         studentMarksRequest.setSubject_id(Subject_id);
         studentMarksRequest.setField(type);
-        Toast.makeText(getActivity(),Subject_id+type,Toast.LENGTH_LONG).show();
+        //Toast.makeText(getActivity(),Subject_id+type,Toast.LENGTH_LONG).show();
 
         //sending request to get a response
         SharedPreferences pref=getContext().getSharedPreferences("MyPref",0);
@@ -82,7 +82,8 @@ public class TeacherMarksDisplay extends Fragment {
                                 response.body().get(i).getMarks(),
                                 type));
                     }
-                    MarksClass.mMarks=response.body().get(0).getTotal_marks();
+                    //MarksClass.mMarks=response.body().get(0).getTotal_marks();
+                    //Log.d("Total Marks",String.valueOf(response.body().get(0).getTotal_marks()));
                     list.setAdapter(new RecyclerAdapterForMarksView(words));
 
 

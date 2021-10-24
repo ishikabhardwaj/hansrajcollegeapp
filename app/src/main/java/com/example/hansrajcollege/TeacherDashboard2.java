@@ -50,10 +50,14 @@ public class TeacherDashboard2 extends AppCompatActivity {
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new TeacherDashboard()).commit();
         NavigationView nav = (NavigationView) findViewById(R.id.nav_view);
         View header1 = nav.getHeaderView(0);
+        View header2 = nav.getHeaderView(1);
+
+
+
         TextView text = (TextView) header1.findViewById(R.id.username);
-        text.setText("Hum Hai Faculty");
+        text.setText(pref.getString("name",null));
         TextView userId = (TextView) header1.findViewById(R.id.useremailID);
-        userId.setText("Ye Hai Id");
+        userId.setText(pref.getString("uid",null));
         nav.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {

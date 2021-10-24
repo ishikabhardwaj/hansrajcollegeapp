@@ -49,7 +49,7 @@ public class TeacherAttendance extends Fragment {
         list.setLayoutManager(new LinearLayoutManager(getActivity()));
         list.setAdapter(new RecyclerAdapterForUploadAtt(words));
 
-        Toast.makeText(getActivity(),String.valueOf(Subject_id),Toast.LENGTH_LONG).show();
+        //Toast.makeText(getActivity(),String.valueOf(Subject_id),Toast.LENGTH_LONG).show();
         SharedPreferences pref=getContext().getSharedPreferences("MyPref",0);
         //sending request
         studentlist_request studentlist_request=new studentlist_request();

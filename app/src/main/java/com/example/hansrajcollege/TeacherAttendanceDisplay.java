@@ -66,7 +66,7 @@ public class TeacherAttendanceDisplay extends Fragment {
         studentAttendanceRequest.setSubject_id(subject_id);
         studentAttendanceRequest.setMonth(month);
 
-        Toast.makeText(getActivity(),subject_id+month,Toast.LENGTH_LONG).show();
+        //Toast.makeText(getActivity(),subject_id+month,Toast.LENGTH_LONG).show();
 
         RecyclerView list=(RecyclerView) root.findViewById(R.id.list);
         list.setLayoutManager(new LinearLayoutManager(getActivity()));
