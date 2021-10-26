@@ -7,7 +7,7 @@ import org.json.JSONArray;
 public class UploadStudentAttendanceRequest {
     int subject_id, total_lectures;
     String month;
-    JsonArray data;
+    String data;
 
     public int getSubject_id() {
         return subject_id;
@@ -33,11 +33,11 @@ public class UploadStudentAttendanceRequest {
         this.month = month;
     }
 
-    public JsonArray getData() {
+    public String getData() {
         return data;
     }
 
-    public void setData(JsonArray data) {
+    public void setData(String data) {
         this.data = data;
     }
 }
