@@ -43,7 +43,7 @@ public interface UserService {
     @POST("attendance/students-attendance/")
     Call<List<StudentAttendanceResponse>> student_attendance(@Body StudentAttendanceRequest studentAttendanceRequest);
 
-    @POST("attendance/upload-attendance/")
+    @POST("/attendance/upload-attendance/")
     Call<UploadStudentAttendanceResponse> upload_attendance(@Body UploadStudentAttendanceRequest uploadStudentAttendanceRequest);
 
 }

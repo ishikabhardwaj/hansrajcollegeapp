@@ -181,8 +181,8 @@ public class TeacherAttendance extends Fragment {
 
                 }
 
-
-                uploadStudentAttendanceRequest.setData(array);
+                Log.d("String: ",array.toString());
+                uploadStudentAttendanceRequest.setData(array.toString());
                 Call<UploadStudentAttendanceResponse> atten = ApiClient.getUserService(pref.getString("access", null)).upload_attendance(uploadStudentAttendanceRequest);
                 atten.enqueue(new Callback<UploadStudentAttendanceResponse>() {
                     @Override
