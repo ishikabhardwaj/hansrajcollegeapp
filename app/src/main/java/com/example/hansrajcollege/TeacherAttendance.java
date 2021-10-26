@@ -103,20 +103,6 @@ public class TeacherAttendance extends Fragment {
                 Log.d("ERROR", t.getLocalizedMessage());
             }
         });
-        /*words.add(new TeacherUploadAttendance("Vardha Jain","B.Sc(Hons.) Computer Science",8151));
-        words.add(new TeacherUploadAttendance("Harshit Jaiswal","B.Sc(Hons.) Computer Science",8152));
-        words.add(new TeacherUploadAttendance("Monika Joshi","B.Sc(Hons.) Computer Science",8153));
-        words.add(new TeacherUploadAttendance("Hemant Giri Goshwami","B.Sc(Hons.) Computer Science",8154));
-        words.add(new TeacherUploadAttendance("Priyanka Das","B.Sc(Hons.) Computer Science",8155));
-        words.add(new TeacherUploadAttendance("Mamidi Chandu","B.Sc(Hons.) Computer Science",8157));
-        words.add(new TeacherUploadAttendance("Benika Yadav","B.Sc(Hons.) Computer Science",8158));
-        words.add(new TeacherUploadAttendance("Benika Yadav","B.Sc(Hons.) Computer Science",8158));
-        words.add(new TeacherUploadAttendance("Benika Yadav","B.Sc(Hons.) Computer Science",8158));
-        words.add(new TeacherUploadAttendance("Benika Yadav","B.Sc(Hons.) Computer Science",8158));
-        words.add(new TeacherUploadAttendance("Benika Yadav","B.Sc(Hons.) Computer Science",8158));
-        words.add(new TeacherUploadAttendance("Benika Yadav","B.Sc(Hons.) Computer Science",8158));
-        words.add(new TeacherUploadAttendance("Benika Yadav","B.Sc(Hons.) Computer Science",8158));
-        words.add(new TeacherUploadAttendance("Benika Yadav","B.Sc(Hons.) Computer Science",8158));*/
 
         save.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -151,8 +137,6 @@ public class TeacherAttendance extends Fragment {
                     month="m12";
                 }
 
-
-
                 uploadStudentAttendanceRequest.setMonth(month);
                 uploadStudentAttendanceRequest.setSubject_id(Subject_id);
                 uploadStudentAttendanceRequest.setTotal_lectures(total_attendance);
@@ -160,25 +144,13 @@ public class TeacherAttendance extends Fragment {
                 String[] arrayList = recyclerAdapterForUploadAtt.retrieveData();
                 Log.d("main log", String.valueOf(arrayList.length));
 
-                    //JasonArray array = new JsonArray();
                     JsonArray array = new JsonArray();
-                    /*for (int i = 0; i < arrayList.size(); i++) {
-                        try {
-                            array.add(getatt(words.get(i).getmRollNo(), Integer.parseInt(arrayList.get(i).getAttendance())));
-                            //array.put(words.get(1).getmRollNo(),arrayList.get(i).getAttendance());
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-
-                    }*/
-                for (int i = 0; i < arrayList.length; i++) {
+                    for (int i = 0; i < arrayList.length; i++) {
                     try {
                         array.add(getatt(words.get(i).getmRollNo(), Integer.parseInt(arrayList[i])));
-                        //array.put(words.get(1).getmRollNo(),arrayList.get(i).getAttendance());
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
-
                 }
 
 
@@ -194,22 +166,14 @@ public class TeacherAttendance extends Fragment {
                             Log.d("failed",response.toString());
                         }
                     }
-
                     @Override
                     public void onFailure(Call<UploadStudentAttendanceResponse> call, Throwable t) {
                         Log.d("False",t.getLocalizedMessage());
                     }
                 });
-
-
-
             }
         });
-
-
         return root;
-
-
     }
 
     JsonObject getatt(int st_id, int attendance) throws JSONException {
@@ -218,10 +182,6 @@ public class TeacherAttendance extends Fragment {
         person .put("attendance", attendance);
         JsonParser jsonParser = new JsonParser();
         JsonObject jsonObject = (JsonObject)jsonParser.parse(person.toString());
-
-
         return jsonObject ;
     }
-
-
 }
