@@ -8,6 +8,7 @@ import com.example.hansrajcollege.models.StudentLoginResponse;
 import com.example.hansrajcollege.models.StudentMarksRequest;
 import com.example.hansrajcollege.models.StudentMarksResponse;
 import com.example.hansrajcollege.models.SubjectList;
+import com.example.hansrajcollege.models.UploadStudentAttendanceRequest;
 import com.example.hansrajcollege.models.student_details;
 import com.example.hansrajcollege.models.studentlist_request;
 import com.example.hansrajcollege.models.subject;
@@ -41,5 +42,8 @@ public interface UserService {
     //to fetch the attendance of the student enrolled in a subject for teacher's dashboard
     @POST("attendance/students-attendance/")
     Call<List<StudentAttendanceResponse>> student_attendance(@Body StudentAttendanceRequest studentAttendanceRequest);
+
+    @POST("attendance/upload-attendance/")
+    Call<UploadStudentAttendanceResponse> upload_attendance(@Body UploadStudentAttendanceRequest uploadStudentAttendanceRequest);
 
 }

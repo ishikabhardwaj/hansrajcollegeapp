@@ -28,7 +28,7 @@ public class StudentDashboard extends AppCompatActivity {
         SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPref", 0);
         //getSupportActionBar().setIcon(R.drawable.ic_baseline_account_circle_24);
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        SharedPreferences pref=this.getSharedPreferences("MyPref",0);
+        //SharedPreferences pref=this.getSharedPreferences("MyPref",0);
 
         toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.open, R.string.close);
         toggle.setDrawerIndicatorEnabled(false);

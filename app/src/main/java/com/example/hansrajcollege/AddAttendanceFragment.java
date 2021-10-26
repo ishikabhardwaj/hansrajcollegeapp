@@ -76,6 +76,7 @@ public class AddAttendanceFragment extends Fragment implements CustomSpinner.OnS
                     bundle.putString("Subject_Selected", s1.getSelectedItem().toString());
                     bundle.putString("Month_Selected", s2.getSelectedItem().toString());
                     bundle.putInt("subject_id",search(s1.getSelectedItem().toString()));
+                    bundle.putInt("total_attendance", Integer.parseInt(e1.getText().toString()));
                     Log.d("subj id",s1.getSelectedItem().toString()+search(s1.getSelectedItem().toString()));
                     TeacherAttendance fragment = new TeacherAttendance();
                     fragment.setArguments(bundle);
