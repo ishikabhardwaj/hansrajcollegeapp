@@ -1,54 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".MarksDisplay">
-
-    <LinearLayout
-    android:layout_width="340dp"
-    android:layout_height="300dp"
-    android:gravity="center"
-    android:layout_centerInParent="true"
-    android:background="@color/white"
-    android:orientation="vertical">
+    android:layout_marginTop="70dp"
+    android:orientation="vertical"
+    tools:context=".MarksFragment">
 
 
-        <ImageView
-            android:id="@+id/image"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:src="@drawable/marksheet_3287846_2754247_removebg_preview"
-            />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/brownbg" />
 
-        <TextView
-            android:id="@+id/subhead"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:gravity="center"
-            android:textColor="@color/brownbg"
-            android:textStyle="bold"
-            android:textSize="25sp" />
-
-
-        <TextView
-            android:id="@+id/description"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingTop="20dp"
-            android:textColor="#000000"
-            android:textSize="20sp" />
-
-        <TextView
-            android:id="@+id/marksget"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:padding="10dp"
-            android:textColor="#000000"
-            android:textSize="20sp" />
-
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/header"
+        android:layout_gravity="center"
+        android:layout_margin="5dp"
+        android:text="List of Students"
+        android:textColor="@color/black"
+        android:textStyle="bold" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@color/brownbg"
+        android:dividerHeight="2dp"
+        android:drawSelectorOnTop="true"
+        android:headerDividersEnabled="true"
+        android:orientation="vertical" />
 </LinearLayout>
-
-</RelativeLayout>

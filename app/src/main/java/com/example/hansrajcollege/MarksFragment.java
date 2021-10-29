@@ -26,16 +26,14 @@ public class MarksFragment extends Fragment implements CustomSpinner.OnSpinnerEv
     String Number[]={"Select Number"};
     String Anumber[]={"Select Number", "Assignment 1","Assignment 2","Assignment 3", "Assignment 4", "Assignment 5"};
     String Inumber[]={"Select Number", "Internal Assessment 1","Internal Assessment 2", "Internal Assessment 3"};
-
+    String validtype;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_marks, container, false);
         s5 = (CustomSpinner) root.findViewById(R.id.subject);
-        s6 = (CustomSpinner) root.findViewById(R.id.number);
         s5.setSpinnerEventsListener(this);
-        s6.setSpinnerEventsListener(this);
         //getting the id of the selected radio button
         //assigning the value to selected_type according to selected radio button
 
@@ -44,13 +42,8 @@ public class MarksFragment extends Fragment implements CustomSpinner.OnSpinnerEv
         //s2.setEnabled(false);
         //s2.setClickable(false);
         ArrayAdapter sub = new ArrayAdapter(this.getActivity(), android.R.layout.simple_spinner_item, subject);
-        ArrayAdapter an1 = new ArrayAdapter(this.getActivity(), android.R.layout.simple_spinner_item, Anumber);
-        ArrayAdapter ian1 = new ArrayAdapter(this.getActivity(), android.R.layout.simple_spinner_item, Inumber);
-        ArrayAdapter n1 = new ArrayAdapter(this.getActivity(), android.R.layout.simple_spinner_item, Number);
         sub.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         s5.setAdapter(sub);
-        n1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        s6.setAdapter(n1);
         type= (RadioGroup) root.findViewById(R.id.radio_type);
         type.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
 
@@ -69,19 +62,16 @@ public class MarksFragment extends Fragment implements CustomSpinner.OnSpinnerEv
                 switch(radioButton.getId()) {
                     case R.id.Assignment:
                         if (checked)
-                        //Do some logic if the male radio button is checked
-                        {an1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                            s6.setAdapter(an1);}
+                        {
+                            validtype="Assignment";
+                        }
                         break;
                     case R.id.Internal:
                         if (checked)
-                        //Do some logic if the female radio button is checked
-                        {ian1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                            s6.setAdapter(ian1);}
+                        {
+                            validtype="Internal Assessment";
+                        }
                         break;
-                    default:
-                        n1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                        s6.setAdapter(n1);
 
                 }
             }
@@ -92,278 +82,29 @@ public class MarksFragment extends Fragment implements CustomSpinner.OnSpinnerEv
             @Override
             public void onClick(View v) {
                 if (type.getCheckedRadioButtonId() == -1) {
-                    n1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                    s6.setAdapter(n1);
                     //no button is selected
                     Toast.makeText(getActivity(), "select a radio button", Toast.LENGTH_SHORT).show();
                 }
+                if(!(s5.getSelectedItem().toString()=="Select Subject" || type.getCheckedRadioButtonId() == -1)) {
 
 
-// MP ASSIGNMENTS AND INTERNALS
-                if (s5.getSelectedItem().toString() == "MP" && s6.getSelectedItem().toString() == "Assignment 1") {
-                    Toast.makeText(getActivity(), "MP Marks for Assignment 1", Toast.LENGTH_LONG).show();
                     Bundle bundle = new Bundle();
-                    bundle.putString("Subject_Selected", "MP");
-                    bundle.putString("Type_Selected", "Assignment1");
-                    MarksDisplay fragment = new MarksDisplay();
-                    fragment.setArguments(bundle);
-                    getFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
-                } else if (s5.getSelectedItem().toString() == "MP" && s6.getSelectedItem().toString() == "Assignment 2") {
-                    Toast.makeText(getActivity(), "MP Marks for Assignment 2", Toast.LENGTH_LONG).show();
-                    Bundle bundle = new Bundle();
-                    bundle.putString("Subject_Selected", "MP");
-                    bundle.putString("Type_Selected", "Assignment2");
-                    MarksDisplay fragment = new MarksDisplay();
-                    fragment.setArguments(bundle);
-                    getFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
-                } else if (s5.getSelectedItem().toString() == "MP" && s6.getSelectedItem().toString() == "Assignment 3") {
-                    Toast.makeText(getActivity(), "MP Marks for Assignment 3", Toast.LENGTH_LONG).show();
-                    Bundle bundle = new Bundle();
-                    bundle.putString("Subject_Selected", "MP");
-                    bundle.putString("Type_Selected", "Assignment3");
-                    MarksDisplay fragment = new MarksDisplay();
-                    fragment.setArguments(bundle);
-                    getFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
-                } else if (s5.getSelectedItem().toString() == "MP" && s6.getSelectedItem().toString() == "Assignment 4") {
-                    Toast.makeText(getActivity(), "MP Marks for Assignment 4", Toast.LENGTH_LONG).show();
-                    Bundle bundle = new Bundle();
-                    bundle.putString("Subject_Selected", "MP");
-                    bundle.putString("Type_Selected", "Assignment4");
-                    MarksDisplay fragment = new MarksDisplay();
-                    fragment.setArguments(bundle);
-                    getFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
-                } else if (s5.getSelectedItem().toString() == "MP" && s6.getSelectedItem().toString() == "Assignment 5") {
-                    Toast.makeText(getActivity(), "MP Marks for Assignment 5", Toast.LENGTH_LONG).show();
-                    Bundle bundle = new Bundle();
-                    bundle.putString("Subject_Selected", "MP");
-                    bundle.putString("Type_Selected", "Assignment5");
-                    MarksDisplay fragment = new MarksDisplay();
-                    fragment.setArguments(bundle);
-                    getFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
-                } else if (s5.getSelectedItem().toString() == "MP" && s6.getSelectedItem().toString() == "Internal Assessment 1") {
-                    Toast.makeText(getActivity(), "MP Marks for Internal Assessment 1", Toast.LENGTH_LONG).show();
-                    Bundle bundle = new Bundle();
-                    bundle.putString("Subject_Selected", "MP");
-                    bundle.putString("Type_Selected", "Internal1");
-                    MarksDisplay fragment = new MarksDisplay();
-                    fragment.setArguments(bundle);
-                    getFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
-                } else if (s5.getSelectedItem().toString() == "MP" && s6.getSelectedItem().toString() == "Internal Assessment 2") {
-                    Toast.makeText(getActivity(), "MP Marks for Internal Assessment 2", Toast.LENGTH_LONG).show();
-                    Bundle bundle = new Bundle();
-                    bundle.putString("Subject_Selected", "MP");
-                    bundle.putString("Type_Selected", "Internal2");
-                    MarksDisplay fragment = new MarksDisplay();
-                    fragment.setArguments(bundle);
-                    getFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
-                } else if (s5.getSelectedItem().toString() == "MP" && s6.getSelectedItem().toString() == "Internal Assessment 3") {
-                    Toast.makeText(getActivity(), "MP Marks for Internal Assessment 3", Toast.LENGTH_LONG).show();
-                    Bundle bundle = new Bundle();
-                    bundle.putString("Subject_Selected", "MP");
-                    bundle.putString("Type_Selected", "Internal3");
+                    bundle.putString("Subject_Selected", s5.getSelectedItem().toString());
+                    bundle.putString("Type_Selected", validtype);
                     MarksDisplay fragment = new MarksDisplay();
                     fragment.setArguments(bundle);
                     getFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
                 }
-
-                // TOC ASSIGNMENTS AND INTERNALS
-                if (s5.getSelectedItem().toString() == "TOC" && s6.getSelectedItem().toString() == "Assignment 1") {
-                    Toast.makeText(getActivity(), "TOC Marks for Assignment 1", Toast.LENGTH_LONG).show();
-                    Bundle bundle = new Bundle();
-                    bundle.putString("Subject_Selected", "TOC");
-                    bundle.putString("Type_Selected", "Assignment1");
-                    MarksDisplay fragment = new MarksDisplay();
-                    fragment.setArguments(bundle);
-                    getFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
-                } else if (s5.getSelectedItem().toString() == "TOC" && s6.getSelectedItem().toString() == "Assignment 2") {
-                    Toast.makeText(getActivity(), "TOC Marks for Assignment 2", Toast.LENGTH_LONG).show();
-                    Bundle bundle = new Bundle();
-                    bundle.putString("Subject_Selected", "TOC");
-                    bundle.putString("Type_Selected", "Assignment2");
-                    MarksDisplay fragment = new MarksDisplay();
-                    fragment.setArguments(bundle);
-                    getFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
-                } else if (s5.getSelectedItem().toString() == "TOC" && s6.getSelectedItem().toString() == "Assignment 3") {
-                    Toast.makeText(getActivity(), "TOC Marks for Assignment 3", Toast.LENGTH_LONG).show();
-                    Bundle bundle = new Bundle();
-                    bundle.putString("Subject_Selected", "TOC");
-                    bundle.putString("Type_Selected", "Assignment3");
-                    MarksDisplay fragment = new MarksDisplay();
-                    fragment.setArguments(bundle);
-                    getFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
-                } else if (s5.getSelectedItem().toString() == "TOC" && s6.getSelectedItem().toString() == "Assignment 4") {
-                    Toast.makeText(getActivity(), "TOC Marks for Assignment 4", Toast.LENGTH_LONG).show();
-                    Bundle bundle = new Bundle();
-                    bundle.putString("Subject_Selected", "TOC");
-                    bundle.putString("Type_Selected", "Assignment4");
-                    MarksDisplay fragment = new MarksDisplay();
-                    fragment.setArguments(bundle);
-                    getFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
-                } else if (s5.getSelectedItem().toString() == "TOC" && s6.getSelectedItem().toString() == "Assignment 5") {
-                    Toast.makeText(getActivity(), "TOC Marks for Assignment 5", Toast.LENGTH_LONG).show();
-                    Bundle bundle = new Bundle();
-                    bundle.putString("Subject_Selected", "TOC");
-                    bundle.putString("Type_Selected", "Assignment5");
-                    MarksDisplay fragment = new MarksDisplay();
-                    fragment.setArguments(bundle);
-                    getFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
-                } else if (s5.getSelectedItem().toString() == "TOC" && s6.getSelectedItem().toString() == "Internal Assessment 1") {
-                    Toast.makeText(getActivity(), "TOC Marks for Internal Assessment 1", Toast.LENGTH_LONG).show();
-                    Bundle bundle = new Bundle();
-                    bundle.putString("Subject_Selected", "TOC");
-                    bundle.putString("Type_Selected", "Internal1");
-                    MarksDisplay fragment = new MarksDisplay();
-                    fragment.setArguments(bundle);
-                    getFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
-                } else if (s5.getSelectedItem().toString() == "TOC" && s6.getSelectedItem().toString() == "Internal Assessment 2") {
-                    Toast.makeText(getActivity(), "TOC Marks for Internal Assessment 2", Toast.LENGTH_LONG).show();
-                    Bundle bundle = new Bundle();
-                    bundle.putString("Subject_Selected", "TOC");
-                    bundle.putString("Type_Selected", "Internal2");
-                    MarksDisplay fragment = new MarksDisplay();
-                    fragment.setArguments(bundle);
-                    getFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
-                } else if (s5.getSelectedItem().toString() == "TOC" && s6.getSelectedItem().toString() == "Internal Assessment 3") {
-                    Toast.makeText(getActivity(), "TOC Marks for Internal Assessment 3", Toast.LENGTH_LONG).show();
-                    Bundle bundle = new Bundle();
-                    bundle.putString("Subject_Selected", "TOC");
-                    bundle.putString("Type_Selected", "Internal3");
-                    MarksDisplay fragment = new MarksDisplay();
-                    fragment.setArguments(bundle);
-                    getFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
+                if(s5.getSelectedItem().toString()=="Select Subject" && type.getCheckedRadioButtonId() == -1){
+                    Toast.makeText(getActivity(),"Select Subject and Type",Toast.LENGTH_LONG).show();
+                }
+                else {
+                    if (s5.getSelectedItem().toString() == "Select Subject") {
+                        Toast.makeText(getActivity(), "Select Subject", Toast.LENGTH_LONG).show();
+                    }
                 }
 
-                // IT ASSIGNMENTS AND INTERNALS
-                if (s5.getSelectedItem().toString() == "IT" && s6.getSelectedItem().toString() == "Assignment 1") {
-                    Toast.makeText(getActivity(), "IT Marks for Assignment 1", Toast.LENGTH_LONG).show();
-                    Bundle bundle = new Bundle();
-                    bundle.putString("Subject_Selected", "IT");
-                    bundle.putString("Type_Selected", "Assignment1");
-                    MarksDisplay fragment = new MarksDisplay();
-                    fragment.setArguments(bundle);
-                    getFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
-                } else if (s5.getSelectedItem().toString() == "IT" && s6.getSelectedItem().toString() == "Assignment 2") {
-                    Toast.makeText(getActivity(), "IT Marks for Assignment 2", Toast.LENGTH_LONG).show();
-                    Bundle bundle = new Bundle();
-                    bundle.putString("Subject_Selected", "IT");
-                    bundle.putString("Type_Selected", "Assignment2");
-                    MarksDisplay fragment = new MarksDisplay();
-                    fragment.setArguments(bundle);
-                    getFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
-                } else if (s5.getSelectedItem().toString() == "IT" && s6.getSelectedItem().toString() == "Assignment 3") {
-                    Toast.makeText(getActivity(), "IT Marks for Assignment 3", Toast.LENGTH_LONG).show();
-                    Bundle bundle = new Bundle();
-                    bundle.putString("Subject_Selected", "IT");
-                    bundle.putString("Type_Selected", "Assignment3");
-                    MarksDisplay fragment = new MarksDisplay();
-                    fragment.setArguments(bundle);
-                    getFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
-                } else if (s5.getSelectedItem().toString() == "IT" && s6.getSelectedItem().toString() == "Assignment 4") {
-                    Bundle bundle = new Bundle();
-                    bundle.putString("Subject_Selected", "IT");
-                    bundle.putString("Type_Selected", "Assignment4");
-                    MarksDisplay fragment = new MarksDisplay();
-                    fragment.setArguments(bundle);
-                    getFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
-                } else if (s5.getSelectedItem().toString() == "IT" && s6.getSelectedItem().toString() == "Assignment 5") {
-                    Toast.makeText(getActivity(), "IT Marks for Assignment 5", Toast.LENGTH_LONG).show();
-                    Bundle bundle = new Bundle();
-                    bundle.putString("Subject_Selected", "IT");
-                    bundle.putString("Type_Selected", "Assignment5");
-                    MarksDisplay fragment = new MarksDisplay();
-                    fragment.setArguments(bundle);
-                    getFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
-                } else if (s5.getSelectedItem().toString() == "IT" && s6.getSelectedItem().toString() == "Internal Assessment 1") {
-                    Toast.makeText(getActivity(), "IT Marks for Internal Assessment 1", Toast.LENGTH_LONG).show();
-                    Bundle bundle = new Bundle();
-                    bundle.putString("Subject_Selected", "IT");
-                    bundle.putString("Type_Selected", "Internal1");
-                    MarksDisplay fragment = new MarksDisplay();
-                    fragment.setArguments(bundle);
-                    getFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
-                } else if (s5.getSelectedItem().toString() == "IT" && s6.getSelectedItem().toString() == "Internal Assessment 2") {
-                    Toast.makeText(getActivity(), "IT Marks for Internal Assessment 2", Toast.LENGTH_LONG).show();
-                    Bundle bundle = new Bundle();
-                    bundle.putString("Subject_Selected", "IT");
-                    bundle.putString("Type_Selected", "Internal2");
-                    MarksDisplay fragment = new MarksDisplay();
-                    fragment.setArguments(bundle);
-                    getFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
-                } else if (s5.getSelectedItem().toString() == "IT" && s6.getSelectedItem().toString() == "Internal Assessment 3") {
-                    Toast.makeText(getActivity(), "IT Marks for Internal Assessment 3", Toast.LENGTH_LONG).show();
-                    Bundle bundle = new Bundle();
-                    bundle.putString("Subject_Selected", "IT");
-                    bundle.putString("Type_Selected", "Internal3");
-                    MarksDisplay fragment = new MarksDisplay();
-                    fragment.setArguments(bundle);
-                    getFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
-                }
 
-                // DAV ASSIGNMENTS AND INTERNALS
-                if (s5.getSelectedItem().toString() == "DAV" && s6.getSelectedItem().toString() == "Assignment 1") {
-                    Toast.makeText(getActivity(), "DAV Marks for Assignment 1", Toast.LENGTH_LONG).show();
-                    Bundle bundle = new Bundle();
-                    bundle.putString("Subject_Selected", "DAV");
-                    bundle.putString("Type_Selected", "Assignment1");
-                    MarksDisplay fragment = new MarksDisplay();
-                    fragment.setArguments(bundle);
-                    getFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
-                } else if (s5.getSelectedItem().toString() == "DAV" && s6.getSelectedItem().toString() == "Assignment 2") {
-                    Bundle bundle = new Bundle();
-                    bundle.putString("Subject_Selected", "DAV");
-                    bundle.putString("Type_Selected", "Assignment2");
-                    MarksDisplay fragment = new MarksDisplay();
-                    fragment.setArguments(bundle);
-                    getFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
-                } else if (s5.getSelectedItem().toString() == "DAV" && s6.getSelectedItem().toString() == "Assignment 3") {
-                    Toast.makeText(getActivity(), "DAV Marks for Assignment 3", Toast.LENGTH_LONG).show();
-                    Bundle bundle = new Bundle();
-                    bundle.putString("Subject_Selected", "DAV");
-                    bundle.putString("Type_Selected", "Assignment3");
-                    MarksDisplay fragment = new MarksDisplay();
-                    fragment.setArguments(bundle);
-                    getFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
-                } else if (s5.getSelectedItem().toString() == "DAV" && s6.getSelectedItem().toString() == "Assignment 4") {
-                    Toast.makeText(getActivity(), "DAV Marks for Assignment 4", Toast.LENGTH_LONG).show();
-                    Bundle bundle = new Bundle();
-                    bundle.putString("Subject_Selected", "DAV");
-                    bundle.putString("Type_Selected", "Assignment4");
-                    MarksDisplay fragment = new MarksDisplay();
-                    fragment.setArguments(bundle);
-                    getFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
-                } else if (s5.getSelectedItem().toString() == "DAV" && s6.getSelectedItem().toString() == "Assignment 5") {
-                    Toast.makeText(getActivity(), "DAV Marks for Assignment 5", Toast.LENGTH_LONG).show();
-                    Bundle bundle = new Bundle();
-                    bundle.putString("Subject_Selected", "DAV");
-                    bundle.putString("Type_Selected", "Assignment5");
-                    MarksDisplay fragment = new MarksDisplay();
-                    fragment.setArguments(bundle);
-                    getFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
-                } else if (s5.getSelectedItem().toString() == "DAV" && s6.getSelectedItem().toString() == "Internal Assessment 1") {
-                    Toast.makeText(getActivity(), "DAV Marks for Internal Assessment 1", Toast.LENGTH_LONG).show();
-                    Bundle bundle = new Bundle();
-                    bundle.putString("Subject_Selected", "DAV");
-                    bundle.putString("Type_Selected", "Internal1");
-                    MarksDisplay fragment = new MarksDisplay();
-                    fragment.setArguments(bundle);
-                    getFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
-                } else if (s5.getSelectedItem().toString() == "DAV" && s6.getSelectedItem().toString() == "Internal Assessment 2") {
-                    Toast.makeText(getActivity(), "DAV Marks for Internal Assessment 2", Toast.LENGTH_LONG).show();
-                    Bundle bundle = new Bundle();
-                    bundle.putString("Subject_Selected", "DAV");
-                    bundle.putString("Type_Selected", "Internal2");
-                    MarksDisplay fragment = new MarksDisplay();
-                    fragment.setArguments(bundle);
-                    getFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
-                } else if (s5.getSelectedItem().toString() == "DAV" && s6.getSelectedItem().toString() == "Internal Assessment 3") {
-                    Toast.makeText(getActivity(), "DAV Marks for Internal Assessment 3", Toast.LENGTH_LONG).show();
-                    Bundle bundle = new Bundle();
-                    bundle.putString("Subject_Selected", "DAV");
-                    bundle.putString("Type_Selected", "Internal3");
-                    MarksDisplay fragment = new MarksDisplay();
-                    fragment.setArguments(bundle);
-                    getFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
-                }
 
             }
         });

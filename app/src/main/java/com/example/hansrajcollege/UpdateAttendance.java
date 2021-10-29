@@ -1,4 +1,4 @@
-package com.example.hansrajcollege.models;
+package com.example.hansrajcollege;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;

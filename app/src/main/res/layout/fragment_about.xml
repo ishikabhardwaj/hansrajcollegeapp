@@ -78,62 +78,14 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/aboutus"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/scrl1"
-        android:layout_marginTop="45sp"
-        android:layout_marginLeft="35sp"
-        android:layout_marginRight="35sp"
-        android:background="#B04400"
-        android:text="About Us"
-        android:textSize="20sp"
-        android:textColor="#FF914D"
-        android:paddingStart="15sp"
-        android:paddingBottom="5sp"
-        android:paddingTop="5sp"/>
 
-
-        <TextView
-            android:id="@+id/aboutus_content"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/aboutus"
-            android:paddingTop="5sp"
-            android:text="Welcome to Hansraj - one of the largest constituent Colleges of
-the University of Delhi - a premier institution, with highly qualified academicians
-imparting education in different fields, the College today enjoys a reputation for
-outstanding performance in academics, sports and extra-curricular activities. Rated
-among top ten Colleges of the country in Science, Commerce and Arts. The College ensures
-complete development of the body, mind and the soul while enshrining traditional Indian
-values in each of its students. The College was founded by the D.A.V. College Managing
-Committee on July 26, 1948 in the sacred memory of Mahatma Hansraj, a pioneer in the
-field of education. It is today one of the leading lights in the D.A.V. family of over
-700 institutions and one of the largest constituent Colleges of Delhi University. More
-than 5000 students on its rolls interact here with a galaxy of scholars on its faculty.
-The College has completed 67 years in the realm of imparting higher education. It has
-made significant and unparalleled contribution to Society in terms of producing numerous
-dignitaries scholars, intellectuals and sports persons who served different domains not
-only in our own country but even at international levels. Over the years, the College
-has built up an impressive infrastructure. It includes a well-stocked Central Library,
-Department libraries for Science subjects and a Book Bank for needy students. The
-College has six Computer Labs. and 18 Science laboratories. Its sports facilities
-include vast play ground, an Indoor Sports Complex, Playrooms,amphetheatre,lift
-facility and the only Electronic Shooting Range in the University."
-            android:textColor="@color/black"
-            android:textSize="15sp"
-            android:layout_marginLeft="40sp"
-            android:layout_marginRight="40sp"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            />
 
 
     <TextView
         android:id="@+id/aboutDevelopers"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/aboutus_content"
+        android:layout_below="@id/scrl1"
         android:layout_marginTop="20sp"
         android:layout_marginLeft="35sp"
         android:layout_marginRight="35sp"
@@ -153,16 +105,22 @@ facility and the only Electronic Shooting Range in the University."
             android:paddingTop="5sp"
             android:text="This application is developed by students of Department of Computer Science, Hansraj College under the guidance of Mr. Suyash Kumar.\n
 
-            \nDEVELOPERS\n\n
-            1. Aakriti Sharma\n
-            2. Aryan Rautela\n
-            3. Benika Yadav\n
-            4. Harshit Jaiswal\n
-            5. Ishika Bhardwaj\n
-            6. Khushboo Gupta\n
-            7. Monika Joshi\n
-            8. Nancy Tayal\n
-            9. Priyanka Das\n
+            \nBACK-END DEVELOPERS\n\n
+            1. Nancy Tayal\n
+            2. Aakriti Sharma\n
+            3. Khushboo Gupta\n
+
+            \nFRONT-END DEVELOPERS\n\n
+            1. Harshit Jaiswal\n
+            2. Ishika Bhardwaj\n
+            3. Priyanka Das\n
+
+            \nAPI INTEGRATION\n\n
+            1. Aryan Rautela\n
+            2. Monika Joshi\n
+
+            \nUI DESIGN\n\n
+            1. Benika Yadav\n
 
             \nHOSTED BY: Omkar Thouta
             "

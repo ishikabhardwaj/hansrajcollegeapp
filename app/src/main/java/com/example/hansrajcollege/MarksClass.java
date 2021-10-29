@@ -13,6 +13,10 @@ public class MarksClass {
         mCourse=course;
         testnumber=num;
     }
+    public MarksClass(String testnum,int marks){
+        testnumber=testnum;
+        mMarks=marks;
+    }
     public int getmRollno() {
         return mRollno;
     }
