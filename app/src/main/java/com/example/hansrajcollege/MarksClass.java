@@ -4,12 +4,13 @@ public class MarksClass {
     private int mRollno;
     private String mName;
     private String mCourse;
-    static int mMarks;
+    private int mMarks;
     private String testnumber;
-    public MarksClass(int rollno,String name,int marks,String num){
+    public MarksClass(int rollno, String name, String course, int marks, String num){
         mRollno=rollno;
         mName=name;
         mMarks=marks;
+        mCourse=course;
         testnumber=num;
     }
     public int getmRollno() {

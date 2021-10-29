@@ -41,10 +41,17 @@ public class TeacherMarksDisplay extends Fragment {
         View root=inflater.inflate(R.layout.teacher_marks_display, container, false);
         h1 = root.findViewById(R.id.header);
        update = (FloatingActionButton) root.findViewById(R.id.update);
+        Bundle bundle= this.getArguments();
+        subject= bundle.getString("Subject_Selected");
+        type= bundle.getString("Type_Selected");
+        Subject_id=bundle.getInt("selected_subject_id");
+        h1.setText(subject +" Marks for " + type);
        update.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
                Fragment fragment = new UpdateMarks();
+               fragment.setArguments(bundle);
+               //getFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                fragmentTransaction.replace(R.id.fragment_container, fragment);
@@ -52,11 +59,7 @@ public class TeacherMarksDisplay extends Fragment {
                fragmentTransaction.commit();
            }
        });
-        Bundle bundle= this.getArguments();
-        subject= bundle.getString("Subject_Selected");
-        type= bundle.getString("Type_Selected");
-        Subject_id=bundle.getInt("selected_subject_id");
-        h1.setText(subject +" Marks for " + type);
+
         final ArrayList<MarksClass> words= new ArrayList<MarksClass>();
 
         RecyclerView list=(RecyclerView) root.findViewById(R.id.list);
@@ -79,8 +82,10 @@ public class TeacherMarksDisplay extends Fragment {
                     for(int i=1;i<response.body().size();i++){
                         words.add(new MarksClass(response.body().get(i).getRollNo(),
                                 response.body().get(i).getName(),
+                                response.body().get(i).getCourse(),
                                 response.body().get(i).getMarks(),
                                 type));
+                        Log.d("marks", String.valueOf(words.get(i-1).getmMarks()));
                     }
                     //MarksClass.mMarks=response.body().get(0).getTotal_marks();
                     //Log.d("Total Marks",String.valueOf(response.body().get(0).getTotal_marks()));

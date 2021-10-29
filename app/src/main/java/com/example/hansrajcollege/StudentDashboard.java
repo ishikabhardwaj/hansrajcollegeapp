@@ -63,6 +63,7 @@ public class StudentDashboard extends AppCompatActivity {
                     case R.id.nav_contact:
                         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new ContactFragment()).addToBackStack(null).commit();
                         break;
+
                 }
                 drawer.closeDrawer(GravityCompat.START);
                 return true;

@@ -42,10 +42,18 @@ public class TeacherAttendanceDisplay extends Fragment {
         View root=inflater.inflate(R.layout.teacher_attendance_display, container, false);
         h1 = root.findViewById(R.id.header);
         update = (FloatingActionButton) root.findViewById(R.id.update);
+
+        Bundle bundle= this.getArguments();
+        subject= bundle.getString("Subject_Selected");
+        month= bundle.getString("Month_Selected");
+        subject_id=bundle.getInt("selected_sub_id");
+        h1.setText(subject +" Attendance for " + month);
+
         update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Fragment fragment = new UpdateAttendance();
+                fragment.setArguments(bundle);
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.fragment_container, fragment);
@@ -54,11 +62,7 @@ public class TeacherAttendanceDisplay extends Fragment {
             }
         });
 
-        Bundle bundle= this.getArguments();
-        subject= bundle.getString("Subject_Selected");
-        month= bundle.getString("Month_Selected");
-        subject_id=bundle.getInt("selected_sub_id");
-        h1.setText(subject +" Attendance for " + month);
+
 
         final ArrayList<AttendanceClass> words= new ArrayList<AttendanceClass>();
         //building request
@@ -83,10 +87,14 @@ public class TeacherAttendanceDisplay extends Fragment {
                     for (int i=1;i<response.body().size();i++){
                         words.add(new AttendanceClass(response.body().get(i).getRollNo(),
                                 response.body().get(i).getName(),
-                                response.body().get(i).getAttendance()));
+                                response.body().get(i).getCourse(),
+                                response.body().get(i).getAttendance(),
+                                response.body().get(0).getTotal_attendance()));
                     }
-                    AttendanceClass.mGiven=response.body().get(0).getTotal_attendance();
+                    //AttendanceClass.mGiven=response.body().get(0).getTotal_attendance();
+                    bundle.putInt("total_attendance",response.body().get(0).getTotal_attendance());
                     list.setAdapter(new RecyclerAdapterForAttendanceView(words));
+
 
                 }
                 else{

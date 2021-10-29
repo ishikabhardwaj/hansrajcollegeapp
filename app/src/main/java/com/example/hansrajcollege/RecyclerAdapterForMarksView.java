@@ -1,11 +1,13 @@
 package com.example.hansrajcollege;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
+import com.example.hansrajcollege.MarksClass;
 
 import java.util.ArrayList;
 
@@ -13,8 +15,11 @@ public class RecyclerAdapterForMarksView extends RecyclerView.Adapter<RecyclerAd
    private ArrayList<MarksClass> data;
 
     // RecyclerView recyclerView;
-    public RecyclerAdapterForMarksView(ArrayList<MarksClass> data) {
-        this.data = data;
+    public RecyclerAdapterForMarksView(ArrayList<MarksClass> datas) {
+        this.data = datas;
+        for(int i=0;i<data.size();i++){
+            Log.d("COSJCOSAJCOJS", String.valueOf(data.get(i).getmMarks()));
+        }
     }
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -32,12 +37,16 @@ public class RecyclerAdapterForMarksView extends RecyclerView.Adapter<RecyclerAd
         int roll=myListData.getmRollno();
         String r=Integer.toString(roll);
         holder.textViewrollno.setText(r);
-        if(myListData.getTestnumber()=="Assignment 1" || myListData.getTestnumber()=="Assignment 2" || myListData.getTestnumber()=="Assignment 3" || myListData.getTestnumber()=="Assignment 4" || myListData.getTestnumber()=="Assignment 5"){
-            holder.textviewmarks.setText(myListData.getmMarks() + " / 10");
+        String s= String.valueOf(myListData.getmMarks());
+        Log.d("markssssss",String.valueOf(myListData.getmMarks()));
+        Log.d("Test",myListData.getTestnumber());
+        if(myListData.getTestnumber().startsWith("a")){
+            holder.textviewmarks.setText(s+ " / 10");
+
         }
         else
         {
-            holder.textviewmarks.setText(myListData.getmMarks() + " / 25");
+            holder.textviewmarks.setText(s+ " / 25");
         }
 
     }

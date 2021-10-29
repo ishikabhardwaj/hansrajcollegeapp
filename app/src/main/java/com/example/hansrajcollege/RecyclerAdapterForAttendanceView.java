@@ -32,7 +32,7 @@ public class RecyclerAdapterForAttendanceView extends RecyclerView.Adapter<Recyc
         int roll=myListData.getmRollno();
         String r=Integer.toString(roll);
         holder.textViewrollno.setText(r);
-            String att= myListData.getmAttended() + " / " + AttendanceClass.getmGiven();
+        String att= myListData.getmAttended() + " / " + myListData.getmGiven();
         holder.textviewatt.setText(att);
 
     }

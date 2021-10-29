@@ -9,6 +9,9 @@ import com.example.hansrajcollege.models.StudentMarksRequest;
 import com.example.hansrajcollege.models.StudentMarksResponse;
 import com.example.hansrajcollege.models.SubjectList;
 import com.example.hansrajcollege.models.UploadStudentAttendanceRequest;
+import com.example.hansrajcollege.models.UploadStudentMarksRequest;
+import com.example.hansrajcollege.models.logout_request;
+import com.example.hansrajcollege.models.logout_respond;
 import com.example.hansrajcollege.models.student_details;
 import com.example.hansrajcollege.models.studentlist_request;
 import com.example.hansrajcollege.models.subject;
@@ -46,4 +49,9 @@ public interface UserService {
     @POST("/attendance/upload-attendance/")
     Call<UploadStudentAttendanceResponse> upload_attendance(@Body UploadStudentAttendanceRequest uploadStudentAttendanceRequest);
 
+    @POST("marks/upload-marks/")
+    Call<UploadStudentMarksResponse> upload_marks(@Body UploadStudentMarksRequest uploadStudentMarksResponse);
+
+    @POST("accounts/logout/")
+    Call<logout_respond> logout(@Body logout_request logout_request);
 }

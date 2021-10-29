@@ -2,7 +2,15 @@ package com.example.hansrajcollege.models;
 
 public class StudentAttendanceResponse {
     int total_attendance,RollNo,Attendance;
-    String Name;
+    String Name,course;
+
+    public String getCourse() {
+        return course;
+    }
+
+    public void setCourse(String course) {
+        this.course = course;
+    }
 
     public int getTotal_attendance() {
         return total_attendance;

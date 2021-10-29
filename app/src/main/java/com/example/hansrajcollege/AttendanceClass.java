@@ -5,11 +5,13 @@ public class AttendanceClass {
     private String mName;
     private String mCourse;
     private int mAttended;
-    static int mGiven;
-    public AttendanceClass(int rollno, String name, int attended){
+    private int mGiven;
+    public AttendanceClass(int rollno, String name,String course, int attended ,int given){
         mRollno=rollno;
         mName=name;
+        mCourse=course;
         mAttended=attended;
+        mGiven=given;
     }
     public int getmRollno() {
         return mRollno;
@@ -27,7 +29,7 @@ public class AttendanceClass {
         return mAttended;
     }
 
-    public static int getmGiven() {
+    public  int getmGiven() {
         return mGiven;
     }
 }

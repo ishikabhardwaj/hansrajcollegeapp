@@ -1,5 +1,6 @@
 package com.example.hansrajcollege;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
@@ -7,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -15,9 +17,16 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.example.hansrajcollege.models.ApiClient;
+import com.example.hansrajcollege.models.logout_request;
+import com.example.hansrajcollege.models.logout_respond;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.zip.Inflater;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class TeacherDashboard2 extends AppCompatActivity {
     ActionBarDrawerToggle toggle;
@@ -71,12 +80,55 @@ public class TeacherDashboard2 extends AppCompatActivity {
                     case R.id.nav_contact:
                         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new ContactFragment()).addToBackStack(null).commit();
                         break;
+                    case R.id.nav_logout:
+                        logout();
+                        break;
                 }
                 drawer.closeDrawer(GravityCompat.START);
                 return true;
             }
+
+
         });
     }
+
+    private void logout() {
+
+        SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPref", 0);
+        logout_request logout_request=new logout_request();
+        logout_request.setRefresh(pref.getString("refresh",null));
+
+        Call<logout_respond> log= ApiClient.getUserService(pref.getString("access",null)).logout(logout_request);
+        log.enqueue(new Callback<logout_respond>() {
+            @Override
+            public void onResponse(Call<logout_respond> call, Response<logout_respond> response) {
+                if(response.isSuccessful()){
+                    //Log.d("response",response.body().getMessage());
+                    pref.edit().clear();
+                    pref.edit().apply();
+                    Intent intent=new Intent(getApplicationContext(), Login_fragment.class);
+                    startActivity(intent);
+                }
+                else {
+                    //Log.d("response",response.body().getMessage());
+
+                    Toast.makeText(getApplication(), "Logout failed", Toast.LENGTH_SHORT).show();
+
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<logout_respond> call, Throwable t) {
+                Log.d("response",t.getLocalizedMessage());
+                Toast.makeText(getApplication(), "Logout failed", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+
+    }
+
     public void onBackPressed(){
         if(drawer.isDrawerOpen(GravityCompat.START)){
             drawer.closeDrawer(GravityCompat.START);
