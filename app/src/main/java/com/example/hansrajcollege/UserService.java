@@ -13,7 +13,10 @@ import com.example.hansrajcollege.models.StudentMarksResponse;
 import com.example.hansrajcollege.models.Subject_Teacher_Details_Response;
 import com.example.hansrajcollege.models.UploadStudentAttendanceRequest;
 import com.example.hansrajcollege.models.UploadStudentAttendanceResponse;
+import com.example.hansrajcollege.models.UploadStudentMarksRequest;
 import com.example.hansrajcollege.models.View_Attendance_Response;
+import com.example.hansrajcollege.models.logout_request;
+import com.example.hansrajcollege.models.logout_respond;
 import com.example.hansrajcollege.models.student_details;
 import com.example.hansrajcollege.models.studentlist_request;
 import com.example.hansrajcollege.models.subject;
@@ -67,5 +70,12 @@ public interface UserService {
     //get the timetable for each day of the week
     @POST("/timetable/get-timetable/")
     Call<List<Get_timetable_response>> GET_TIMETABLE_RESPONSE_CALL(@Body Get_timetable_request get_timetable_request);
+
+    @POST("accounts/logout/")
+    Call<logout_respond> logout(@Body logout_request logout_request);
+
+    @POST("marks/upload-marks/")
+    Call<UploadStudentMarksResponse> upload_marks(@Body UploadStudentMarksRequest uploadStudentMarksRequest);
+
 
 }

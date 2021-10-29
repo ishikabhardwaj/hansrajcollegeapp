@@ -12,7 +12,9 @@ import android.widget.EditText;
 import androidx.fragment.app.Fragment;
 
 import com.example.hansrajcollege.R;
-import com.example.hansrajcollege.UploadStudentAttendanceResponse;
+import com.example.hansrajcollege.models.ApiClient;
+import com.example.hansrajcollege.models.UploadStudentAttendanceRequest;
+import com.example.hansrajcollege.models.UploadStudentAttendanceResponse;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
