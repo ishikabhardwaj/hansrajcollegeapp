@@ -15,7 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.hansrajcollege.models.ApiClient;
 import com.example.hansrajcollege.models.UploadStudentAttendanceRequest;
-import com.example.hansrajcollege.models.att;
+import com.example.hansrajcollege.models.UploadStudentAttendanceResponse;
 import com.example.hansrajcollege.models.student_details;
 import com.example.hansrajcollege.models.studentlist_request;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -23,7 +23,6 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 //import com.google.gson.JsonArray;
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 

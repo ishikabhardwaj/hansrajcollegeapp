@@ -1,4 +1,4 @@
-package com.example.hansrajcollege.models;
+package com.example.hansrajcollege;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

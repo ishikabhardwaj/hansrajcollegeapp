@@ -1,14 +1,19 @@
 package com.example.hansrajcollege;
 
 import com.example.hansrajcollege.models.FacultyLoginResponse;
+import com.example.hansrajcollege.models.Get_Subject_List_Response;
+import com.example.hansrajcollege.models.Get_timetable_request;
+import com.example.hansrajcollege.models.Get_timetable_response;
 import com.example.hansrajcollege.models.LoginRequest;
 import com.example.hansrajcollege.models.StudentAttendanceRequest;
 import com.example.hansrajcollege.models.StudentAttendanceResponse;
 import com.example.hansrajcollege.models.StudentLoginResponse;
 import com.example.hansrajcollege.models.StudentMarksRequest;
 import com.example.hansrajcollege.models.StudentMarksResponse;
-import com.example.hansrajcollege.models.SubjectList;
+import com.example.hansrajcollege.models.Subject_Teacher_Details_Response;
 import com.example.hansrajcollege.models.UploadStudentAttendanceRequest;
+import com.example.hansrajcollege.models.UploadStudentAttendanceResponse;
+import com.example.hansrajcollege.models.View_Attendance_Response;
 import com.example.hansrajcollege.models.student_details;
 import com.example.hansrajcollege.models.studentlist_request;
 import com.example.hansrajcollege.models.subject;
@@ -45,5 +50,22 @@ public interface UserService {
 
     @POST("/attendance/upload-attendance/")
     Call<UploadStudentAttendanceResponse> upload_attendance(@Body UploadStudentAttendanceRequest uploadStudentAttendanceRequest);
+
+    //to fetch subject teacher details corresponding to each student
+    @GET("/students/subject-teachers-details/")
+    Call<List<Subject_Teacher_Details_Response>> SUBJECT_TEACHER_DETAILS_RESPONSE_CALL();
+
+    //to get the subject list for each student
+    //to populate view attendance and view marks spinner
+    @GET("/students/get-subject-list/")
+    Call<List<Get_Subject_List_Response>> GET_SUBJECT_LIST_RESPONSE_CALL();
+
+    //to fetch the total attendance up till last month for each student
+    @GET("/attendance/view-attendance/")
+    Call<List<View_Attendance_Response>> VIEW_ATTENDANCE_RESPONSE_CALL();
+
+    //get the timetable for each day of the week
+    @POST("/timetable/get-timetable/")
+    Call<List<Get_timetable_response>> GET_TIMETABLE_RESPONSE_CALL(@Body Get_timetable_request get_timetable_request);
 
 }
