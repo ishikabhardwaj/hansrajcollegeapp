@@ -6,7 +6,4 @@
     android:layout_height="match_parent"
     android:layout_marginTop="68dp"
     android:dividerHeight="2dp"
-    android:divider="@color/black"
-    android:drawSelectorOnTop="true"
-    android:headerDividersEnabled="true"
     android:orientation="vertical" />

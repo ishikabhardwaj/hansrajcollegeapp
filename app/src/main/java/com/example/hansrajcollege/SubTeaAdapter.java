@@ -39,14 +39,21 @@ public class SubTeaAdapter extends BaseAdapter {
     @Override
     public View getView(int in, View view, ViewGroup viewGroup) {
         view = inflter.inflate(R.layout.activity_listview_subject_teacher, null);
-       LinearLayout l1=(LinearLayout) view.findViewById(R.id.ll);
-       LinearLayout l2=(LinearLayout) view.findViewById(R.id.ll2);
+        LinearLayout l1=(LinearLayout) view.findViewById(R.id.unfixed);
         TextView t1 = (TextView) view.findViewById(R.id.textView2);
         TextView t2 = (TextView) view.findViewById(R.id.textView1);
         TextView t3=(TextView) view.findViewById(R.id.textView3);
+        TextView t4 = (TextView) view.findViewById(R.id.textViewsecondteacher);
+        TextView t5 = (TextView) view.findViewById(R.id.textViewsecondmail);
+        if(w.get(in).getmTeacher2()=="NULL")
+        {
+            l1.setVisibility(View.INVISIBLE);
+        }
         t1.setText(w.get(in).getmSubject());
-        t2.setText(w.get(in).getmTeacher());
-        t3.setText(w.get(in).getmTMail());
+        t2.setText(w.get(in).getmTeacher1());
+        t3.setText(w.get(in).getmTMail1());
+        t4.setText(w.get(in).getmTeacher2());
+        t5.setText(w.get(in).getmTMail2());
         return view;
     }
 }
