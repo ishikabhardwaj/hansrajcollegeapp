@@ -51,6 +51,9 @@ public class SubjectTeacherFragment extends Fragment {
                                     String teacher2=response.body().get(i).getTeacher().substring(comma_in_teacher_names+1,response.body().get(i).getTeacher().length()-1);
                                     String mail1=response.body().get(i).getEmail().substring(0,comma_in_email-1);
                                     String mail2=response.body().get(i).getTeacher().substring(comma_in_email+1,response.body().get(i).getEmail().length()-1);
+                                    //words.add(new SubjectTeacher(response.body().get(i).getSubject(),
+                                    //                              teacher1,mail1,teacher2,mail2);
+
 
                                 }*/
                                 //else{
