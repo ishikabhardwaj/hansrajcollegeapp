@@ -60,14 +60,14 @@
                 android:layout_height="wrap_content">
 
 
-                <TextView
+               <!-- <TextView
                     android:id="@+id/textView0"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
                     android:text="August"
                     android:textColor="@color/black"
-                    android:textStyle="bold" />
+                    android:textStyle="bold" />-->
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 

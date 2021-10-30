@@ -31,8 +31,7 @@ public class ViewAttendance extends Fragment implements CustomSpinner.OnSpinnerE
     int selected_type;
     String subject[]={"Select Subject", "MicroProcessor", "Theory of Computation", "Internet Technology", "Data Analysis and Visualization"};
     String Months[]={"Month","m1","m2","m3","m4","m5","m6","m7","m8","m9","m10","m11","m12"};
-    //String Months[]={"Month","January","February","March","April","May","June","July","August","Septemer","October","November","December"};
-    //String Month[]={"Month"};
+
     ArrayList<String> sub=new ArrayList<>();
     ArrayList<Integer> sub_id=new ArrayList<>();
 

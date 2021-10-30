@@ -1,4 +1,4 @@
-package com.example.hansrajcollege.models;
+package com.example.hansrajcollege;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -6,9 +6,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.example.hansrajcollege.MarksClass;
-import com.example.hansrajcollege.R;
 
 import java.util.ArrayList;
 
@@ -30,13 +27,13 @@ public class RecyclerAdapterForMarks extends RecyclerView.Adapter<RecyclerAdapte
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         final MarksClassforStudent myListData = data.get(position);
-        holder.textviewnumber.setText(myListData.getTestnumber() +" " + Integer.toString(position+1));
-        int marks=myListData.getmMarks();
-        String mark=Integer.toString(marks);
-        if(myListData.getTestnumber()=="Assignment")
-        holder.textviewmarks.setText(mark + "/10");
-        else
-            holder.textviewmarks.setText(mark + "/25");
+        holder.textviewnumber.setText(myListData.getTestnumber());
+       // int marks=myListData.getmMarks();
+       // String mark=Integer.toString(marks);
+       // if(myListData.getTestnumber()=="Assignment")
+      //  holder.textviewmarks.setText(mark + "/10");
+       // else
+     holder.textviewmarks.setText(myListData.getmMarks());
 
     }
 

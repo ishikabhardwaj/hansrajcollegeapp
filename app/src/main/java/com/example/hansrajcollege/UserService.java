@@ -1,6 +1,8 @@
 package com.example.hansrajcollege;
 
 import com.example.hansrajcollege.models.FacultyLoginResponse;
+import com.example.hansrajcollege.models.Get_Marks_Request;
+import com.example.hansrajcollege.models.Get_Marks_Response;
 import com.example.hansrajcollege.models.Get_Subject_List_Response;
 import com.example.hansrajcollege.models.Get_timetable_request;
 import com.example.hansrajcollege.models.Get_timetable_response;
@@ -66,6 +68,10 @@ public interface UserService {
     //to fetch the total attendance up till last month for each student
     @GET("/attendance/view-attendance/")
     Call<List<View_Attendance_Response>> VIEW_ATTENDANCE_RESPONSE_CALL();
+
+    //to fetch the marks of assignment/internal in student module
+    @POST("/marks/get-marks/")
+    Call<List<Get_Marks_Response>> GET_MARKS_RESPONSE_CALL(@Body Get_Marks_Request get_marks_request);
 
     //get the timetable for each day of the week
     @POST("/timetable/get-timetable/")

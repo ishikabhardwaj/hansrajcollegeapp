@@ -1,17 +1,17 @@
-package com.example.hansrajcollege.models;
+package com.example.hansrajcollege;
 
 public class MarksClassforStudent {
-    static int mMarks;
-    private String testnumber;
-    public MarksClassforStudent(String testnum, int marks){
+    private String testnumber,mMarks;
+    public MarksClassforStudent(String testnum, String marks){
         testnumber=testnum;
         mMarks=marks;
     }
-    public int getmMarks() {
+    public String getmMarks() {
         return mMarks;
     }
 
     public String getTestnumber() {
         return testnumber;
     }
+
 }

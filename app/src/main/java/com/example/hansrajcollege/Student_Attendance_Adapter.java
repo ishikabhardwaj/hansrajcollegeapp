@@ -46,7 +46,6 @@ public class Student_Attendance_Adapter extends BaseAdapter {
         TextView t4=(TextView)convertView.findViewById(R.id.textView3);
 
         t1.setText(w.get(position).getMSubject());
-        t2.setText(w.get(position).getMmonth());
         t3.setText(w.get(position).getMAttendance());
         t4.setText(w.get(position).getMPercentage());
         return convertView;
