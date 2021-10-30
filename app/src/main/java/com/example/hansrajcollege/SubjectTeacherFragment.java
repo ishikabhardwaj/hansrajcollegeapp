@@ -45,20 +45,24 @@ public class SubjectTeacherFragment extends Fragment {
                         else{
                             for(int i=0;i<response.body().size();i++){
                                if(response.body().get(i).getTeacher().contains(",")){
-                                    int comma_in_teacher_names=response.body().get(i).getTeacher().indexOf(',');
-                                    int comma_in_email=response.body().get(i).getEmail().indexOf(',');
-                                    String teacher1=response.body().get(i).getTeacher().substring(0,comma_in_teacher_names-1);
-                                    String teacher2=response.body().get(i).getTeacher().substring(comma_in_teacher_names+1,response.body().get(i).getTeacher().length()-1);
-                                    String mail1=response.body().get(i).getEmail().substring(0,comma_in_email-1);
-                                    String mail2=response.body().get(i).getTeacher().substring(comma_in_email+1,response.body().get(i).getEmail().length());
-                                    words.add(new SubjectTeacher(response.body().get(i).getSubject(),teacher1,mail1,teacher2,mail2));
-
-
+                                    String Teacher_Names=response.body().get(i).getTeacher();
+                                    String Emails=response.body().get(i).getEmail();
+                                    int comma_in_teacher_names=Teacher_Names.indexOf(',');
+                                    int comma_in_email=Emails.indexOf(',');
+                                    Log.d("NAME AND COMMA INDEX",response.body().get(i).getTeacher()+" "+Integer.toString(comma_in_teacher_names));
+                                    Log.d("SAPERATING NAMES", Teacher_Names.substring(0,comma_in_teacher_names)+" and "+Teacher_Names.substring(comma_in_teacher_names+1));
+                                    Log.d("EMAIL AND COMMA INDEX",response.body().get(i).getEmail()+" "+Integer.toString(comma_in_email));
+                                    Log.d("SAPERATING EMAILS", Emails.substring(0,comma_in_email)+" and "+Emails.substring(comma_in_email+1));
+                                    words.add(new SubjectTeacher(response.body().get(i).getSubject(),
+                                            Teacher_Names.substring(0,comma_in_teacher_names),
+                                            Emails.substring(0,comma_in_email),
+                                            Teacher_Names.substring(comma_in_teacher_names+1),
+                                            Emails.substring(comma_in_email+1)));
                                 }
                                 else{
                                    words.add(new SubjectTeacher(response.body().get(i).getSubject(),response.body().get(i).getTeacher(),response.body().get(i).getEmail(),"NULL","NULL"));
-                                    //show null in place of teacher 2 and mail2
-                                   // words.add(new SubjectTeacher(response.body().get(i).getSubject(),response.body().get(i).getTeacher(),response.body().get(i).getEmail()),"NULL","NULL");
+                                   //show null in place of teacher 2 and mail2
+                                   //words.add(new SubjectTeacher(response.body().get(i).getSubject(),response.body().get(i).getTeacher(),response.body().get(i).getEmail()),"NULL","NULL");
                                }
 
                             }
