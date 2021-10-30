@@ -2,6 +2,8 @@ package com.example.hansrajcollege;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -54,6 +56,30 @@ public class SubTeaAdapter extends BaseAdapter {
         t3.setText(w.get(in).getmTMail1());
         t4.setText(w.get(in).getmTeacher2());
         t5.setText(w.get(in).getmTMail2());
+        t3.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("ResourceAsColor")
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
+                        "mailto",w.get(in).getmTMail1(), null));// only email apps should handle this
+
+                if (intent.resolveActivity(v.getContext().getPackageManager()) != null) {
+                    v.getContext().startActivity(intent);}
+                t3.setTextColor(R.color.yellow);
+            }
+        });
+        t5.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("ResourceAsColor")
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
+                        "mailto",w.get(in).getmTMail2(), null));// only email apps should handle this
+
+                if (intent.resolveActivity(v.getContext().getPackageManager()) != null) {
+                    v.getContext().startActivity(intent);}
+                t5.setTextColor(R.color.yellow);
+            }
+        });
         return view;
     }
 }
