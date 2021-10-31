@@ -92,17 +92,20 @@ public class UpdateMarks extends Fragment {
                    upda.enqueue(new Callback<UploadStudentMarksResponse>() {
                        @Override
                        public void onResponse(Call<UploadStudentMarksResponse> call, Response<UploadStudentMarksResponse> response) {
-                          // if (response.isSuccessful()) {
+                          if (response.isSuccessful()) {
                                Log.d("response", response.body().getMessage());
-                         //  } else {
-                              // Log.d("failed", response.toString());
-                        //   }
+                               Toast.makeText(getContext(),"Marks Updated Successfully",Toast.LENGTH_LONG).show();
+                         } else {
+                              Toast.makeText(getContext(),"Failed to Update Marks",Toast.LENGTH_LONG).show();
+                              Log.d("failed", response.toString());
+                        }
 
                        }
 
                        @Override
                        public void onFailure(Call<UploadStudentMarksResponse> call, Throwable t) {
                            Log.d("False", t.getLocalizedMessage());
+                           Toast.makeText(getContext(),"Couldn't Update the marks",Toast.LENGTH_LONG).show();
                            t.printStackTrace();
                        }
                    });

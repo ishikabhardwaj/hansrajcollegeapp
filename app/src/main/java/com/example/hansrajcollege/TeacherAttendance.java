@@ -159,14 +159,17 @@ public class TeacherAttendance extends Fragment {
                     @Override
                     public void onResponse(Call<UploadStudentAttendanceResponse> call, Response<UploadStudentAttendanceResponse> response) {
                         if(response.isSuccessful()){
+                            Toast.makeText(getContext(),"Attendance Uploaded Successfully",Toast.LENGTH_LONG).show();
                             Log.d("response",response.body().getMessage());
                         }
                         else {
+                            Toast.makeText(getContext(),"Failed To Upload Attendance",Toast.LENGTH_LONG).show();
                             Log.d("failed",response.toString());
                         }
                     }
                     @Override
                     public void onFailure(Call<UploadStudentAttendanceResponse> call, Throwable t) {
+                        Toast.makeText(getContext(),"Couldn't Upload the Attendance",Toast.LENGTH_LONG).show();
                         Log.d("False",t.getLocalizedMessage());
                     }
                 });

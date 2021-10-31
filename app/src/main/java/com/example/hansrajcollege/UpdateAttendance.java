@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
@@ -79,15 +80,18 @@ public class UpdateAttendance extends Fragment {
                    @Override
                    public void onResponse(Call<UploadStudentAttendanceResponse> call, Response<UploadStudentAttendanceResponse> response) {
                        if(response.isSuccessful()){
+                           Toast.makeText(getContext(),"Attendance Updated Successfully",Toast.LENGTH_LONG).show();
                            Log.d("response",response.body().getMessage());
                        }
                        else {
+                           Toast.makeText(getContext(),"Failed to update",Toast.LENGTH_LONG).show();
                            Log.d("failed",response.toString());
                        }
                    }
 
                    @Override
                    public void onFailure(Call<UploadStudentAttendanceResponse> call, Throwable t) {
+                       Toast.makeText(getContext(),"Couldn't Update Attendance",Toast.LENGTH_LONG).show();
                        Log.d("False",t.getLocalizedMessage());
                    }
                });

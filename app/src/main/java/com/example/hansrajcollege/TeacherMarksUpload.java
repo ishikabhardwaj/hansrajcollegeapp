@@ -165,9 +165,11 @@ public class TeacherMarksUpload extends Fragment {
                     @Override
                     public void onResponse(Call<UploadStudentMarksResponse> call, Response<UploadStudentMarksResponse> response) {
                         if(response.isSuccessful()){
+                            Toast.makeText(getContext(),"Marks Uploaded Successfully",Toast.LENGTH_LONG).show();
                             Log.d("response",response.body().getMessage());
                         }
                         else {
+                            Toast.makeText(getContext(),"Failed to Upload the Marks",Toast.LENGTH_LONG).show();
                             Log.d("failed",response.toString());
                         }
 
@@ -175,6 +177,7 @@ public class TeacherMarksUpload extends Fragment {
 
                     @Override
                     public void onFailure(Call<UploadStudentMarksResponse> call, Throwable t) {
+                        Toast.makeText(getContext(),"Couldn't Upload Marks",Toast.LENGTH_LONG).show();
                         Log.d("False",t.getLocalizedMessage());
                     }
                 });
