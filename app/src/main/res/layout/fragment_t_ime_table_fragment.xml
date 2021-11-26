@@ -13,7 +13,7 @@
         android:background="@color/white"
         android:orientation="vertical">
 
-        <com.example.hansrajcollege.CustomSpinner
+        <com.hans.hansrajcollege.CustomSpinner
             android:id="@+id/spinner3"
             android:layout_width="270dp"
             android:layout_height="40dp"
@@ -23,7 +23,7 @@
             android:visibility="visible"
             android:spinnerMode="dropdown" />
 
-        <com.example.hansrajcollege.CustomSpinner
+        <com.hans.hansrajcollege.CustomSpinner
             android:id="@+id/spinner4"
             android:layout_width="270dp"
             android:layout_height="40dp"

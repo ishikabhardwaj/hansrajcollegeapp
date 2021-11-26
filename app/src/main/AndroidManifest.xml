@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.hansrajcollege">
+    package="com.hans.hansrajcollege">
 
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
@@ -30,10 +30,10 @@
             android:name="com.google.android.wearable.standalone"
             android:value="true" />
 
-        <activity android:name=".StudentDashboard" />
-        <activity android:name=".TeacherDashboard2" />
-        <activity android:name=".Home_page" />
-        <activity android:name=".MainActivity">
+        <activity android:name="com.hans.hansrajcollege.StudentDashboard" />
+        <activity android:name="com.hans.hansrajcollege.TeacherDashboard2" />
+        <activity android:name="com.hans.hansrajcollege.Home_page" />
+        <activity android:name="com.hans.hansrajcollege.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

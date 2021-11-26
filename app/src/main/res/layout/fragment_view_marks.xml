@@ -24,7 +24,7 @@
             android:gravity="center"
             android:orientation="vertical">
 
-            <com.example.hansrajcollege.CustomSpinner
+            <com.hans.hansrajcollege.CustomSpinner
                 android:id="@+id/subject"
                 android:layout_width="270dp"
                 android:layout_height="40dp"
@@ -65,7 +65,7 @@
                     android:textStyle="bold" />
             </RadioGroup>
 
-            <com.example.hansrajcollege.CustomSpinner
+            <com.hans.hansrajcollege.CustomSpinner
                 android:id="@+id/number"
                 android:layout_width="270dp"
                 android:layout_height="40dp"

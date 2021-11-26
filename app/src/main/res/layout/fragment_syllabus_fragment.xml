@@ -13,7 +13,7 @@
         android:orientation="vertical">
 
 
-        <com.example.hansrajcollege.CustomSpinner
+        <com.hans.hansrajcollege.CustomSpinner
             android:id="@+id/spinner"
             android:layout_width="270dp"
             android:layout_height="40dp"
@@ -26,7 +26,7 @@
 
 
 
-        <com.example.hansrajcollege.CustomSpinner
+        <com.hans.hansrajcollege.CustomSpinner
             android:id="@+id/spinner2"
             android:layout_width="270dp"
             android:layout_height="40dp"
